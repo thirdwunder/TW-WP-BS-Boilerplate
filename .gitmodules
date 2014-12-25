@@ -10,9 +10,6 @@
 [submodule "includes/fontawesome"]
 	path = includes/fontawesome
 	url = https://mohamedhamad@github.com/FortAwesome/Font-Awesome.git
-[submodule "includes/isotype"]
-	path = includes/isotype
-	url = https://mohamedhamad@github.com/metafizzy/isotope.git
 [submodule "includes/html5shiv"]
 	path = includes/html5shiv
 	url = https://mohamedhamad@github.com/aFarkas/html5shiv.git
