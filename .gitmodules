@@ -22,3 +22,6 @@
 [submodule "includes/wp-bootstrap-navwalker"]
 	path = includes/wp-bootstrap-navwalker
 	url = https://mohamedhamad@github.com/thirdwunder/wp-bootstrap-navwalker.git
+[submodule "includes/isotope"]
+	path = includes/isotope
+	url = https://mohamedhamad@github.com/metafizzy/isotope.git
