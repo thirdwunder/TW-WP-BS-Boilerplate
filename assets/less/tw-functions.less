@@ -1,0 +1,126 @@
+@-webkit-viewport   { width: device-width; }
+@-moz-viewport      { width: device-width; }
+@-ms-viewport       { width: device-width; }
+@-o-viewport        { width: device-width; }
+@viewport           { width: device-width; }
+
+@screen-sm: 768px;
+@screen-md: 992px;
+@screen-lg: 1200px;
+
+.fullwidth-image{
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+.border-radius(@radius){
+  border-radius: @radius !important;
+  -webkit-border-radius: @radius !important;
+  -moz-border-radius: @radius !important;
+  -o-border-radius: @radius !important;
+}
+
+.background-full(){
+  background-position: center top;
+  background-attachment: scroll;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.transition(@property, @duration, @function){
+  -webkit-transition: @property @duration @function;
+  -moz-transition: @property @duration @function;
+  -ms-transition: @property @duration @function;
+  -o-transition: @property @duration @function;
+  transition: @property @duration @function;
+}
+
+@base-size: 18px;
+
+.em-size( @value: @base-size, @context: @base-size ) {
+	font-size: (@value / @context) + 0em;
+}
+
+.em-line-height(@value:@base-size, @context:@base-size){
+  line-height: ( (@value+5px) / (@context+5px) )+0em;
+}
+
+
+
+.grayscale(@precent){
+  -webkit-filter: grayscale(@precent);
+  -moz-filter: grayscale(@precent);
+  -ms-filter: grayscale(@precent);
+  -o-filter: grayscale(@precent);
+  filter: grayscale(@precent);
+  filter: url(grayscale.svg); /* Firefox 4+ */
+  filter: gray; /* IE 6-9 */;
+}
+
+.vertical-align(){
+  position: relative;
+  top:50%;
+  -webkit-transform:translateY(-50%);
+  -ms-transform:translateY(-50%);
+  transform:translateY(-50%);
+}
+.vertical-align-parent(){
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+
+/* vertical alignment styles */
+.col-top {
+    vertical-align:top;
+}
+.col-middle {
+    vertical-align:middle;
+}
+.col-bottom {
+    vertical-align:bottom;
+}
+
+/* fix firefox responsive images */
+.img-responsive {
+    width: 100%
+}
+
+
+/* vertical alignment styles */
+.col-top() {
+    vertical-align:top;
+}
+.col-middle() {
+    vertical-align:middle;
+}
+.col-bottom() {
+    vertical-align:bottom;
+}
+
+/* fix firefox responsive images */
+.img-responsive {
+    width: 100%
+}
+
+
+/*** table-cell fix ***/
+.container-height(){
+  display:table;
+  padding-left:0px;
+  padding-right:0px;
+}
+
+.row-height(){
+  display:table-row;
+}
+.col-height(){
+  display:table-cell;
+  float:none;
+}
+
+.table-reset(){
+  display: block !important;
+}

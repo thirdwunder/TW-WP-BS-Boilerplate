@@ -1,0 +1,27 @@
+[submodule "includes/Tax-Meta-Class"]
+	path = includes/Tax-Meta-Class
+	url = https://mohamedhamad@github.com/thirdwunder/Tax-Meta-Class.git
+[submodule "includes/My-Meta-Box"]
+	path = includes/My-Meta-Box
+	url = https://mohamedhamad@github.com/thirdwunder/My-Meta-Box.git
+[submodule "includes/bootstrap"]
+	path = includes/bootstrap
+	url = https://mohamedhamad@github.com/twbs/bootstrap.git
+[submodule "includes/fontawesome"]
+	path = includes/fontawesome
+	url = https://mohamedhamad@github.com/FortAwesome/Font-Awesome.git
+[submodule "includes/isotype"]
+	path = includes/isotype
+	url = https://mohamedhamad@github.com/metafizzy/isotope.git
+[submodule "includes/html5shiv"]
+	path = includes/html5shiv
+	url = https://mohamedhamad@github.com/aFarkas/html5shiv.git
+[submodule "includes/respond"]
+	path = includes/respond
+	url = https://mohamedhamad@github.com/scottjehl/Respond.git
+[submodule "includes/jasny"]
+	path = includes/jasny
+	url = https://mohamedhamad@github.com/jasny/bootstrap.git
+[submodule "includes/wp-bootstrap-navwalker"]
+	path = includes/wp-bootstrap-navwalker
+	url = https://mohamedhamad@github.com/thirdwunder/wp-bootstrap-navwalker.git
