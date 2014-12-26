@@ -1,5 +1,18 @@
 <?php
 
+include_once('includes/tw-wp-core/helper-functions.php');
+include_once('includes/tw-wp-core/wordpress-functions.php');
+include_once('includes/tw-wp-core/theme-admin-settings.php');
+
+
+if(!class_exists('AT_Meta_Box')){
+  require_once("includes/My-Meta-Box/meta-box-class/my-meta-box-class.php");
+}
+
+if(!class_exists('Tax_Meta_Class')){
+  require_once("includes/Tax-Meta-Class/Tax-meta-class/Tax-meta-class.php");
+}
+
 /******************************************************
 ********************* Stylesheet **********************
 ******************************************************/
@@ -58,8 +71,8 @@ if(!function_exists('tw_register_sidebars')){
     //$mh_theme_widget_sidebar = get_option('mh_theme_widget_sidebar') ? !!get_option('mh_theme_widget_sidebar') : false;
     //if($mh_theme_widget_sidebar){
       register_sidebar(array(
-      	'id' => 'sidebar',
-      	'name' => 'Main Sidebar',
+      	'id' => 'primary',
+      	'name' => 'Primary Sidebar',
       	'description' => 'Used on every page BUT the homepage page template.',
       	'before_widget' => '<div id="%1$s" class="widget %2$s">',
       	'after_widget' => '</div>',
@@ -86,7 +99,7 @@ if(!function_exists('tw_register_sidebars')){
 
 
   }
-  add_action( 'widgets_init', 'mh_register_sidebars' );
+  add_action( 'widgets_init', 'tw_register_sidebars' );
 }
 
 

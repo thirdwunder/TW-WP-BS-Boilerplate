@@ -12,24 +12,119 @@ License URI: http://www.thirdwunder.com
 
 For modern browsers */
 
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('includes/fontawesome/fonts/fontawesome-webfont.eot?v=4.2.0');
+  src: url('includes/fontawesome/fonts/fontawesome-webfont.eot?#iefix&v=4.2.0') format('embedded-opentype'),
+       url('includes/fontawesome/fonts/fontawesome-webfont.woff?v=4.2.0') format('woff'),
+       url('includes/fontawesome/fonts/fontawesome-webfont.ttf?v=4.2.0') format('truetype'),
+       url('includes/fontawesome/fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-fontawesome: 'FontAwesome';
+
+/***** Color Definitions *****/
+@color-primary: #333;
+@color-secondary: #666;
+@color-tertiary: #999;
+
+@color-heading: #000;
+@color-body: #333;
+@color-lines: #e1e1e1;
+@color-caption-bg: #f1f1f1;
+
+@color-link: blue;
+@color-link-hover: darken(@color-link, 10%);
+
+@color-btn-default: white;
+@color-btn-default-hover: darken(@color-btn-default, 10%);
+
+@color-btn-primary: blue;
+@color-btn-primary-hover: darken(@color-btn-primary,10%);
+
+@color-btn-success: green;
+@color-btn-success-hover: darken(@color-btn-success,10%);
+
+@color-btn-warning: orange;
+@color-btn-warning-hover: darken(@color-btn-warning, 10%);
+
+@color-btn-danger:  red;
+@color-btn-danger-hover:  darken(@color-btn-danger, 10%);
+
+
+/***** Google Font Families *****/
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+@font-droid: 'Droid Sans', sans-serif;
+
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
+@font-lato: 'Lato', sans-serif;
+
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic);
+@font-ptsans: 'PT Sans', sans-serif;
+
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+@font-poiret-one: 'Poiret One', cursive;
+
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+@font-lobster: 'Lobster', cursive;
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,300,400,600,700,800);
+@font-open-sans: 'Open Sans', sans-serif;
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic,500,500italic,700,700italic,900,900italic);
+@font-roboto: 'Roboto', sans-serif;
+
+@font-raleway: 'Raleway', sans-serif;
+@import url(http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900);
+
+@font-montserrat: 'Montserrat', sans-serif;
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+@font-oxygen: 'Oxygen', sans-serif;
+@import url(http://fonts.googleapis.com/css?family=Oxygen:300,400,700);
+
+@font-signika: 'Signika', sans-serif;
+@import url(http://fonts.googleapis.com/css?family=Signika:300,400,600,700);
+
+
+/***** Font Definitions *****/
+@font-heading: @font-lato;
+@font-body: @font-open-sans;
+
 @import "includes/bootstrap/less/bootstrap.less";
 @import "includes/jasny/less/jasny-bootstrap.less";
 @import "includes/fontawesome/less/font-awesome.less";
+
 
 @import "assets/less/tw-functions.less";
 @import "assets/less/tw-gravityforms.less";
 @import "assets/less/tw-isotope.less";
 @import "assets/less/tw-colors-social.less";
+//@import "assets/less/tw-wp-widgets.less";
+//@import "assets/less/tw-wp-comments.less";
+@import "assets/less/tw-wp-general.less";
+@import "assets/less/tw-base-fonts.less";
 
 
-html, body{
-
+h1, h2, h3, h4, h5{
+  font-family: @font-heading;
+  color:@color-heading;
 }
 
+html, body{
+  min-height: 100%;
+  font-family: @font-body;
+  color: @color-body;
+}
+
+
+
 body{
+  min-height: 100%;
 
   &.logged-in{
-    margin-top: 72;
+    margin-top: 72px;
 
     .navbar-fixed-top{
       top:32px;
@@ -38,3 +133,79 @@ body{
 
 }
 
+#site-content{
+  margin-top: 50px;
+}
+
+.post,
+.type-post{
+  .entry-header{
+    .entry-meta{
+      list-style: none;
+      padding-left: 0;
+      li{
+        display: inline-block;
+        margin-right: 20px;
+        &.entry-date,
+        &.entry-author,
+        &.entry-categories{
+          &::before{
+            font-family: @font-fontawesome;
+            margin-right: 5px;
+          }
+        }
+
+        &.entry-date{
+          &::before{
+            content: @fa-var-clock-o;
+          }
+        }
+        &.entry-author{
+          &::before{
+            content: @fa-var-user;
+          }
+        }
+        &.entry-categories{
+          &::before{
+            content: @fa-var-tags;
+          }
+        }
+      }
+    }
+  }
+  .entry-content{
+
+  }
+
+  .entry-body{
+
+  }
+
+  .entry-footer{
+
+  }
+
+  #entry-author{
+    margin: 25px 0;
+    border: 1px solid @color-lines;
+    padding: 25px;
+
+    .author-image{
+      margin-left: 25px;
+    }
+  }
+}
+
+
+#site-footer{
+  background-color: #000;
+  color: white;
+  padding: 10px 0;
+  margin-top: 25px;
+  .footer-container{
+    #copyright{}
+    #credit{
+      text-align: right;
+    }
+  }
+}

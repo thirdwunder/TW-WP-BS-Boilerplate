@@ -25,3 +25,6 @@
 [submodule "includes/isotope"]
 	path = includes/isotope
 	url = https://mohamedhamad@github.com/metafizzy/isotope.git
+[submodule "includes/tw-wp-core"]
+	path = includes/tw-wp-core
+	url = https://mohamedhamad@github.com/thirdwunder/tw-core.git
