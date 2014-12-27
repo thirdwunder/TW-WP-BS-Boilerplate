@@ -1,0 +1,47 @@
+<?php
+/**
+ * Author Page
+ *
+ * @package WordPress
+ * @subpackage Third Wunder
+ * @since Third Wunder 1.0
+ */
+get_header(); ?>
+<div id="primary" class="content-area col-xs-12 col-sm-9 col-md-9">
+	<main id="main" class="site-main" role="main" itemprop="mainContentOfPage">
+
+	  <?php if ( have_posts() ) : the_post(); ?>
+    <div id="page-author" class="page-archive" <?= html_tag_schema(); ?>>
+
+      <?php get_template_part( 'content/_breadcrumbs' ); ?>
+
+      <header class="page-header">
+    		<h1 class="page-title">
+      		<?php printf( __( 'All posts by %s', 'mh' ), '<span class="vcard itemprop="name""><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me" itemprop="url">' . get_the_author() . '</a></span>' ); ?>
+    		</h1>
+    		<?php rewind_posts(); ?>
+
+    		<?php if ( get_the_author_meta( 'description' ) ) : ?>
+  				<?php get_template_part( 'author-bio' ); ?>
+  			<?php endif; ?>
+    	</header><!-- .page-header -->
+
+
+      <section id="author-posts" class="page-posts">
+    	<?php while ( have_posts() ) : the_post(); ?>
+				<?php get_template_part( 'loop/content', get_post_format() ); ?>
+			<?php endwhile; ?>
+      </section><!-- page-posts -->
+
+    	<footer class="page-footer">
+        <?php tw_pagination(); ?>
+    	</footer><!-- .page-footer -->
+
+    </div><!-- #page-author -->
+    <?php endif; ?>
+
+  </main><!-- .site-main -->
+</div><!-- .content-area -->
+<?php get_sidebar( 'sidebar' ); ?>
+
+<?php get_footer(); ?>

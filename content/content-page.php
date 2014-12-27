@@ -8,16 +8,18 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?= html_tag_schema(); ?>>
 
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<h1 itemprop="name" class="entry-title"><?php the_title(); ?></h1>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content">
+	<div class="entry-content" itemprop="text">
 		<?php the_content(); ?>
 	</div><!-- .entry-content -->
 
-	<?php edit_post_link( __( 'Edit', 'tw' ), '<footer class="entry-footer"><span class="edit-link">', '</span></footer><!-- .entry-footer -->' ); ?>
+  <footer class="entry-footer">
+	<?php edit_post_link( __( 'Edit', 'tw' ), '<span class="edit-link">', '</span>' ); ?>
+  </footer><!-- .entry-footer -->
 
 </article><!-- #post-## -->

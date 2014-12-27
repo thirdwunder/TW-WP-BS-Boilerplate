@@ -26,12 +26,17 @@
 
 
 ?>
-<aside id="entry-author" class="entry-author-bio" itemscope itemtype="http://schema.org/Person">
+<aside id="entry-author" class="entry-author-bio" itemscope="itemscope" itemtype="http://schema.org/Person" itemprop="author">
 
     <div class="author-content">
-        <h4><?php _e('About','mh'); ?> <span itemprop="name"><?php the_author_posts_link();?></h4>
+        <?php if(is_author()): ?>
+          <span class="sr-only" itemprop="name"><?php the_author_posts_link();?></span>
+        <?php else: ?>
+        <h4><?php _e('About','mh'); ?> <span itemprop="name"><?php the_author_posts_link();?></span></h4>
+        <?php endif ;?>
+
         <div class="author-image pull-right"><?php echo get_avatar( get_the_author_meta( 'user_email' ), '100' ); ?></div>
-        <p><?php echo get_the_author_meta( 'description', $author_id ); ?></p>
+        <p itemprop="description"><?php echo get_the_author_meta( 'description', $author_id ); ?></p>
     </div><!-- profile-content -->
     <div class="author-social">
 				<?php foreach($social as $k => $v): ?>

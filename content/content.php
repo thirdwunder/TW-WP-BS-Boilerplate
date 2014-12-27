@@ -4,29 +4,51 @@
  *
  */
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope itemtype="http://schema.org/BlogPosting">
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?= html_tag_schema('Article'); ?>>
   <header class="entry-header">
-    <h1 class="entry-title"><?php the_title();?></h1>
-    <ul class="entry-meta post-meta">
-      <li class="entry-date">
-        <time class="updated" itemprop="datePublished" datetime="<?php echo get_the_time('Y-m-j'); ?>" pubdate><?php echo get_the_time('F j, Y'); ?></time>
-      </li>
+    <?php
+      if(is_single()){
+        $image_caption =  get_post( get_post_thumbnail_id($post->ID) )->post_excerpt;
+      ?>
+        <figure class="entry-image">
+          <?php the_post_thumbnail('large', array('itemprop'=>'image'));
+            if($image_caption): ?>
+              <figcaption class="caption"><?php echo $image_caption;?></figcaption>
+            <?php endif; ?>
+        </figure>
+        <?php
+        the_title('<h1 class="entry-title" itemprop="headline">','</h1>');
+      }else{
+      ?>
+        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" itemprop="url">
+          <div class="entry-image">
+            <?php the_post_thumbnail('large', array('itemprop'=>'image')); ?>
+          </div>
+          <h2 class="entry-title" itemprop="headline"><?php the_title(); ?></h2>
+        </a>
+      <?php
+      }
+    ?>
+    <?php get_template_part('content/_post-meta'); ?>
 
-      <li class="entry-author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <?php echo __('by','mh'); ?> <span class="fn" itemprop="name"><?php the_author_posts_link();?></span>
-      </li>
-
-      <li class="entry-categories">
-        <?php the_category( ','); ?>
-      </li>
-    </ul><!-- .entry-meta -->
   </header>
 
-  <section class="entry-content" itemprop="articleBody">
-    <?php the_content(); ?>
-  </section>
+  <?php if(is_single()): ?>
+    <section class="entry-content" itemprop="articleBody">
+      <?php the_content(); ?>
+    </section>
+  <?php else: ?>
+    <section class="entry-content" itemprop="description">
+      <?php the_excerpt(); ?>
+    </section>
+  <?php endif; ?>
 
+  <?php if(is_single()): ?>
   <footer class="entry-footer">
-		<?php get_template_part( 'author-bio' );?>
+    <div class="entry-tags"><?php the_tags( 'Tags: ', ', ', '' ); ?></div>
+    <?php edit_post_link( __( 'Edit', 'tw' ), '<span class="edit-link">', '</span>' ); ?>
   </footer>
+  <?php endif; ?>
+
+  <?php if(is_single()){get_template_part( 'author-bio' );}?>
 </article>

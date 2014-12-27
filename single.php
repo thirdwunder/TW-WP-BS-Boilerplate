@@ -8,24 +8,29 @@
  */
 
 get_header(); ?>
-<div id="primary" class="content-area">
-	<main id="main" class="site-main col-xs-12 col-sm-9 col-md-9" role="main">
+<div id="primary" class="content-area col-xs-12 col-sm-9 col-md-9">
+	<main id="main" class="site-main" role="main" itemprop="mainContentOfPage">
+
+	<?php get_template_part( 'content/_breadcrumbs' ); ?>
+
 	<?php
 		while ( have_posts() ) : the_post();
 		  get_template_part( 'content/content', get_post_format() );
+
+      tw_post_nav();
+
+      get_template_part('content/related-posts');
 
 		  if ( comments_open() || get_comments_number() ) :
 				comments_template();
 			endif;
 
-      tw_post_nav();
+
     endwhile;
 	?>
   </main><!-- .site-main -->
 
-
-  <?php get_sidebar( 'sidebar' ); ?>
-
 </div><!-- .content-area -->
+<?php get_sidebar( 'sidebar' ); ?>
 
 <?php get_footer(); ?>

@@ -1,6 +1,6 @@
     </div><!-- #site-container -->
   </div><!-- #site-content -->
-  <div id="site-footer" class="">
+  <footer id="site-footer" class="site-footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
     <div class="footer-container container">
       <div class="row">
         <div id="copyright" class="col-xs-12 col-sm-6 col-md-6">
@@ -11,7 +11,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </footer>
 <?php wp_footer(); ?>
 </body>
 </html>

@@ -23,60 +23,79 @@
 
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> itemscope="itemscope" itemtype="http://schema.org/WebPage">
 
   <!-- Offcanvas Menu -->
-  <div id="menu-mobile" class="navmenu navmenu-default navmenu-fixed-right offcanvas">
+  <nav id="menu-mobile" class="navmenu navmenu-default navmenu-fixed-right offcanvas" itemtype="http://schema.org/SiteNavigationElement">
     <a class="navmenu-brand" href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>" rel="home">
       <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo.png" alt="<?php bloginfo('name'); ?> Logo" />
       <span class="sr-only"><?php bloginfo('name'); ?></span>
     </a>
-  </div><!-- .offcanvas -->
+
+    <?php
+       if ( has_nav_menu( 'mobile' ) ){
+        	wp_nav_menu( array(
+        		'menu'       => 'mobile',
+        		'theme_location' => 'mobile',
+        		'depth'      => 2,
+        		'container'  => false,
+        		'menu_class' => 'nav navmenu-nav', //
+        		'fallback_cb' => 'wp_page_menu',
+        		'walker' => new tw_wp_bootstrap_mobile_navwalker())
+        	);
+      	}
+    ?>
+    <div id="mobile-search" class="">
+      <?php get_template_part('searchform'); ?>
+    </div>
+  </nav><!-- .offcanvas -->
 
 
   <!-- Site Header -->
-  <header id="site-header" role="banner">
-    <nav id="menu-primary" role="navigation">
-      <div class="navbar navbar-default navbar-fixed-top ">
-        <div class="container">
+  <header id="site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
 
-            <div class="navbar-header">
+    <nav id="menu-primary" role="navigation" class="navbar navbar-default navbar-fixed-top" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+      <div class="container">
+        <div class="navbar-header">
 
-              <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
-                <span class="sr-only"><?php _e('Navigation','mh'); ?></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
+          <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
+            <span class="sr-only"><?php _e('Navigation','mh'); ?></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button><!-- .navbar-toggle -->
 
-              <a class="navbar-brand" href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>" rel="home">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo.png" alt="<?php bloginfo('name'); ?> Logo" />
-                <span class="sr-only"><?php bloginfo('name'); ?></span>
-              </a>
-            </div> <!-- navbar-header -->
+          <a class="navbar-brand navbar-brand-logo" href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>" rel="home">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo.png" alt="<?php bloginfo('name'); ?>
+            Logo" />
+            <span class="sr-only"><?php bloginfo('name'); ?></span>
+          </a> <!-- .navbar-brand -->
+        </div><!-- .navbar-header -->
 
-            <div class="navbar-collapse collapse navbar-responsive-collapse">
-            <?php
-              if ( has_nav_menu( 'primary' ) ){
-              	wp_nav_menu( array(
-              		'menu'       => 'primary',
-              		'theme_location' => 'primary',
-              		'depth'      => 2,
-              		'container'  => false,
-              		'menu_class' => 'nav navbar-nav nav-justified', //navbar-right
-              		'fallback_cb' => 'wp_page_menu',
-              		'walker' => new mh_wp_bootstrap_navwalker())
-              	);
-            	}
-            ?>
-            </div><!-- /.navbar-collapse -->
+        <div class="navbar-collapse collapse navbar-responsive-collapse" >
+        <?php
+           if ( has_nav_menu( 'primary' ) ){
+            	wp_nav_menu( array(
+            		'menu'       => 'primary',
+            		'theme_location' => 'primary',
+            		'depth'      => 2,
+            		'container'  => false,
+            		'menu_class' => 'nav navbar-nav navbar-right', //
+            		'fallback_cb' => 'wp_page_menu',
+            		'walker' => new tw_wp_bootstrap_navwalker())
+            	);
+          	}
+        ?>
+        </div><!-- /.navbar-collapse -->
 
-
-        </div><!-- .container -->
-      </div><!-- navbar-default -->
+      </div><!-- .container-fluid -->
     </nav><!-- #menu-primary -->
+
+
+
+
   </header><!-- #site-header -->
 
   <!-- Site Container -->
-  <div id="site-content">
-    <div id="site-container" class="container">
+  <div id="site-content" class="container">
+    <div id="site-container" class="row">

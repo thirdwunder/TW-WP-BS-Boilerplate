@@ -12,47 +12,6 @@ License URI: http://www.thirdwunder.com
 
 For modern browsers */
 
-@font-face {
-  font-family: 'FontAwesome';
-  src: url('includes/fontawesome/fonts/fontawesome-webfont.eot?v=4.2.0');
-  src: url('includes/fontawesome/fonts/fontawesome-webfont.eot?#iefix&v=4.2.0') format('embedded-opentype'),
-       url('includes/fontawesome/fonts/fontawesome-webfont.woff?v=4.2.0') format('woff'),
-       url('includes/fontawesome/fonts/fontawesome-webfont.ttf?v=4.2.0') format('truetype'),
-       url('includes/fontawesome/fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-fontawesome: 'FontAwesome';
-
-/***** Color Definitions *****/
-@color-primary: #333;
-@color-secondary: #666;
-@color-tertiary: #999;
-
-@color-heading: #000;
-@color-body: #333;
-@color-lines: #e1e1e1;
-@color-caption-bg: #f1f1f1;
-
-@color-link: blue;
-@color-link-hover: darken(@color-link, 10%);
-
-@color-btn-default: white;
-@color-btn-default-hover: darken(@color-btn-default, 10%);
-
-@color-btn-primary: blue;
-@color-btn-primary-hover: darken(@color-btn-primary,10%);
-
-@color-btn-success: green;
-@color-btn-success-hover: darken(@color-btn-success,10%);
-
-@color-btn-warning: orange;
-@color-btn-warning-hover: darken(@color-btn-warning, 10%);
-
-@color-btn-danger:  red;
-@color-btn-danger-hover:  darken(@color-btn-danger, 10%);
-
-
 /***** Google Font Families *****/
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
 @font-droid: 'Droid Sans', sans-serif;
@@ -87,22 +46,63 @@ For modern browsers */
 @font-signika: 'Signika', sans-serif;
 @import url(http://fonts.googleapis.com/css?family=Signika:300,400,600,700);
 
+/***** Font Awesome *****/
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('includes/fontawesome/fonts/fontawesome-webfont.eot?v=4.2.0');
+  src: url('includes/fontawesome/fonts/fontawesome-webfont.eot?#iefix&v=4.2.0') format('embedded-opentype'),
+       url('includes/fontawesome/fonts/fontawesome-webfont.woff?v=4.2.0') format('woff'),
+       url('includes/fontawesome/fonts/fontawesome-webfont.ttf?v=4.2.0') format('truetype'),
+       url('includes/fontawesome/fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-fontawesome: 'FontAwesome';
+
+/***** Color Definitions *****/
+@color-primary: #333;
+@color-secondary: #666;
+@color-tertiary: #999;
+
+@color-heading: #000;
+@color-body: #333;
+@color-line-light: #e1e1e1;
+@color-line-dark: #ccc;
+@color-caption-bg: #f1f1f1;
+
+@color-link: blue;
+@color-link-hover: darken(@color-link, 10%);
+
+@color-btn-default: white;
+@color-btn-default-hover: darken(@color-btn-default, 10%);
+
+@color-btn-primary: blue;
+@color-btn-primary-hover: darken(@color-btn-primary,10%);
+
+@color-btn-success: green;
+@color-btn-success-hover: darken(@color-btn-success,10%);
+
+@color-btn-warning: orange;
+@color-btn-warning-hover: darken(@color-btn-warning, 10%);
+
+@color-btn-danger:  red;
+@color-btn-danger-hover:  darken(@color-btn-danger, 10%);
+
 
 /***** Font Definitions *****/
 @font-heading: @font-lato;
 @font-body: @font-open-sans;
 
+/***** 3rd Party Imports *****/
 @import "includes/bootstrap/less/bootstrap.less";
 @import "includes/jasny/less/jasny-bootstrap.less";
 @import "includes/fontawesome/less/font-awesome.less";
 
-
+/***** Third Wunder Imports *****/
 @import "assets/less/tw-functions.less";
 @import "assets/less/tw-gravityforms.less";
 @import "assets/less/tw-isotope.less";
 @import "assets/less/tw-colors-social.less";
-//@import "assets/less/tw-wp-widgets.less";
-//@import "assets/less/tw-wp-comments.less";
 @import "assets/less/tw-wp-general.less";
 @import "assets/less/tw-base-fonts.less";
 
@@ -133,45 +133,54 @@ body{
 
 }
 
+#menu-mobile{
+ #mobile-search{
+   padding: 10px 10px;
+ }
+}
+
 #site-content{
   margin-top: 50px;
+
+  #primary{
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+
+#home-page{
+  .page-header{
+    .page-desc{
+      font-size: 1.3em;
+      font-style: italic;
+    }
+  }
+
 }
 
 .post,
 .type-post{
   .entry-header{
-    .entry-meta{
-      list-style: none;
-      padding-left: 0;
-      li{
-        display: inline-block;
-        margin-right: 20px;
-        &.entry-date,
-        &.entry-author,
-        &.entry-categories{
-          &::before{
-            font-family: @font-fontawesome;
-            margin-right: 5px;
-          }
-        }
-
-        &.entry-date{
-          &::before{
-            content: @fa-var-clock-o;
-          }
-        }
-        &.entry-author{
-          &::before{
-            content: @fa-var-user;
-          }
-        }
-        &.entry-categories{
-          &::before{
-            content: @fa-var-tags;
-          }
-        }
+    .entry-image{
+      position: relative;
+      img{
+       .fullwidth-image();
+      }
+      .caption{
+        position: absolute;
+        bottom:0;
+        right: 0;
+        color: white;
+        background-color: black;
+        background-color: rgba(0,0,0,0.75);
+        padding: 10px 15px;
+        max-width: 100%;
+        height: auto;
+        font-style: italic;
+        font-size: 0.8em;
       }
     }
+    .post-entry-meta();
   }
   .entry-content{
 
@@ -182,20 +191,47 @@ body{
   }
 
   .entry-footer{
-
-  }
-
-  #entry-author{
-    margin: 25px 0;
-    border: 1px solid @color-lines;
-    padding: 25px;
-
-    .author-image{
-      margin-left: 25px;
+    .entry-tags{
+      margin: 15px 0;
+      &::before{
+        font-family: @font-fontawesome;
+        content: @fa-var-tags;
+        margin-right: 5px;
+      }
     }
   }
+
+  .author-bio-box();
 }
 
+.page-archive{
+  .page-header{
+    .author-bio-box();
+  }
+
+  .page-posts{
+    .post{
+      margin-bottom: 25px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid @color-line-light;
+      .loop-entry-meta();
+
+      .entry-image{
+        img{
+          .fullwidth-image();
+          margin-bottom: 15px;
+        }
+      }
+      h2.entry-title{
+        margin-top: 0;
+      }
+    }
+  }
+
+  .page-footer{
+
+  }
+}
 
 #site-footer{
   background-color: #000;
@@ -208,4 +244,86 @@ body{
       text-align: right;
     }
   }
+}
+
+@screen-sm: 768px;
+@screen-md: 992px;
+@screen-lg: 1200px;
+
+@media only screen and (max-width: @screen-sm){
+	body::before{
+		content: "Phone media query ( < 768) fired";
+		padding-top:5px;
+		font-weight: bold;
+		display: block;
+		text-align: center;
+		background: rgba(255,255,0, 0.9);
+		position: absolute;
+		top: 0; left: 0; right: 0;
+		z-index: 99;
+	}
+
+}
+
+
+@media only screen and (min-width: @screen-sm){
+	body::before{
+		content: "Tablet media query (768 < 979) fired";
+		padding-top:5px;
+		font-weight: bold;
+		display: block;
+		text-align: center;
+		background: rgba(0,255,0, 0.9);
+		position: absolute;
+		top: 0; left: 0; right: 0;
+		z-index: 99;
+	}
+
+}
+
+
+/* Medium devices (desktops, 992px and up) */
+@media only screen and (min-width: @screen-md) {
+	body::before{
+		content: "Desktop media query ( > 992) fired";
+		padding-top:5px;
+		font-weight: bold;
+		display: block;
+		text-align: center;
+		background: rgba(0,255,255, 0.9);
+		position: absolute;
+		top: 0; left: 0; right: 0;
+		z-index: 99;
+	}
+
+  .entry-meta{
+    li{
+      width: auto !important;
+      margin-right: 20px !important;
+    }
+  }
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media only screen and (min-width: @screen-lg) {
+	body::before{
+		content: "Large Desktop media query ( > 1200) fired";
+		padding-top:5px;
+		font-weight: bold;
+		display: block;
+		text-align: center;
+		background: rgba(255,100,100, 0.9);
+		position: absolute;
+		top: 0; left: 0; right: 0;
+		z-index: 99;
+	}
+
+  .entry-meta{
+    li{
+      width: auto ;
+      margin-right: 20px;
+    }
+  }
+
 }
