@@ -1,9 +1,42 @@
+/***********************
+******* General  *******
+************************/
+body{
+  min-height: 100%;
+  &.logged-in{
+    margin-top: 72px;
+  }
+  &.custom-background{
+    //background-size: contain !important;
+    //background-position: center top !important;
+    //background-repeat: no-repeat !important;
+    //background-attachment: fixed !important;
+  }
+}
 
+
+.sticky{
+  background-color: inherit;
+}
+.gallery-caption{
+  background-color: inherit;
+}
+.bypostauthor{
+  background-color: inherit;
+}
+
+
+
+/***********************
+****** Author Bio  ******
+************************/
 .author-bio-box{
   #entry-author{
     margin: 25px 0;
     border: 1px solid @color-line-light;
     padding: 25px;
+    background-color: white;
+    background-color: rgba(255,255,255,0.75);
 
     .author-image{
       margin-left: 25px;
@@ -111,8 +144,11 @@
     font-style: italic;
   }
 
-  &.alignnone{
+  &.aligncenter{
     margin: 15px auto;
+  }
+  &.alignnone{
+    margin: 15px 5px;
   }
   &.alignleft{
    .pull-left();
@@ -124,9 +160,11 @@
   }
 
 }
-
+img.aligncenter{
+  margin: 15px auto;
+}
 img.alignnone{
-  margin: 10px auto;
+  margin: 15px 5px;
 }
 img.alignleft{
  .pull-left();

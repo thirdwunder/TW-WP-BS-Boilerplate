@@ -11,7 +11,7 @@ get_header(); ?>
 	<main id="main" class="site-main" role="main" itemprop="mainContentOfPage">
 
 	  <?php if ( have_posts() ) : the_post(); ?>
-    <div id="page-author" class="page-archive" <?= html_tag_schema(); ?>>
+    <div id="page-author" class="page-archive" <?php echo html_tag_schema(); ?>>
 
       <?php get_template_part( 'content/_breadcrumbs' ); ?>
 

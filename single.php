@@ -18,6 +18,7 @@ get_header(); ?>
 		  get_template_part( 'content/content', get_post_format() );
 
       tw_post_nav();
+      posts_nav_link();
 
       get_template_part('content/related-posts');
 

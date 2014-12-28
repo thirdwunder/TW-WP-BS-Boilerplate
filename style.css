@@ -9232,10 +9232,33 @@ fieldset[disabled] .gform_button.active {
 }
 /* End: Recommended Isotope styles */
 /* disable CSS transitions for containers with infinite scrolling*/
+/***********************
+******* General  *******
+************************/
+body {
+  min-height: 100%;
+}
+body.logged-in {
+  margin-top: 72px;
+}
+.sticky {
+  background-color: inherit;
+}
+.gallery-caption {
+  background-color: inherit;
+}
+.bypostauthor {
+  background-color: inherit;
+}
+/***********************
+****** Author Bio  ******
+************************/
 .author-bio-box #entry-author {
   margin: 25px 0;
   border: 1px solid #e1e1e1;
   padding: 25px;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.75);
 }
 .author-bio-box #entry-author .author-image {
   margin-left: 25px;
@@ -9374,8 +9397,11 @@ fieldset[disabled] .post-edit-link.active {
   margin: 5px auto;
   font-style: italic;
 }
-.wp-caption.alignnone {
+.wp-caption.aligncenter {
   margin: 15px auto;
+}
+.wp-caption.alignnone {
+  margin: 15px 5px;
 }
 .wp-caption.alignleft {
   float: left !important;
@@ -9387,8 +9413,11 @@ fieldset[disabled] .post-edit-link.active {
   float: right;
   margin: 5px 0 5px 15px;
 }
+img.aligncenter {
+  margin: 15px auto;
+}
 img.alignnone {
-  margin: 10px auto;
+  margin: 15px 5px;
 }
 img.alignleft {
   float: left !important;
@@ -9921,12 +9950,6 @@ body {
   font-family: 'Open Sans', sans-serif;
   color: #333333;
 }
-body {
-  min-height: 100%;
-}
-body.logged-in {
-  margin-top: 72px;
-}
 body.logged-in .navbar-fixed-top {
   top: 32px;
 }
@@ -9935,14 +9958,81 @@ body.logged-in .navbar-fixed-top {
 }
 #site-content {
   margin-top: 50px;
+  min-height: 100%;
+}
+#site-content #site-container {
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
+  min-height: 100%;
 }
 #site-content #primary {
+  min-height: 100%;
+  height: 100%;
   padding-top: 15px;
   padding-bottom: 15px;
+}
+#home-page .page-header {
+  margin-top: 0;
+}
+#home-page .page-header h1 {
+  margin-top: 0;
 }
 #home-page .page-header .page-desc {
   font-size: 1.3em;
   font-style: italic;
+}
+#page-contact .contact-details .contact-address {
+  font-size: 1.2em;
+}
+#page-contact .contact-details .contact-phone {
+  font-size: 1.2em;
+}
+#page-contact .contact-details .contact-phone ul {
+  margin: 10px 0;
+}
+#page-contact .contact-details .contact-phone ul li {
+  margin: 7px 0;
+}
+#page-contact .contact-details .contact-social ul {
+  list-style: none;
+  padding-left: 0;
+}
+#page-contact .contact-details .contact-social ul li {
+  display: inline-block;
+  font-size: 2.5em;
+}
+#page-contact .contact-details .contact-social ul li a.contact-facebook {
+  color: #3b5998;
+}
+#page-contact .contact-details .contact-social ul li a.contact-twitter {
+  color: #55acee;
+}
+#page-contact .contact-details .contact-social ul li a.contact-instagram {
+  color: #3f729b;
+}
+#page-contact .contact-details .contact-social ul li a.contact-pinterest {
+  color: #cc2127;
+}
+#page-contact .contact-details .contact-social ul li a.contact-linkedin {
+  color: #0976b4;
+}
+#page-contact .contact-details .contact-social ul li a.contact-youtube {
+  color: #e52d27;
+}
+#page-contact .contact-details .contact-social ul li a.contact-googleplus {
+  color: #dd4b39;
+}
+#page-contact .contact-details .contact-social ul li a.contact-flickr {
+  color: #ff0084;
+}
+#page-contact .contact-details .contact-social ul li a.contact-tumblr {
+  color: #35465c;
+}
+#page-contact .contact-details .contact-social ul li a.contact-vimeo {
+  color: #1ab7ea;
+}
+#page-contact .contact-details .contact-social ul li a.contact-slideshare {
+  color: #e98325;
 }
 .post .entry-header .entry-image,
 .type-post .entry-header .entry-image {
@@ -10021,39 +10111,51 @@ body.logged-in .navbar-fixed-top {
   margin: 25px 0;
   border: 1px solid #e1e1e1;
   padding: 25px;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.75);
 }
 .post #entry-author .author-image,
 .type-post #entry-author .author-image {
   margin-left: 25px;
 }
-.page-archive .page-header #entry-author {
+.page-archive .page-header #entry-author,
+.type-page .page-header #entry-author {
   margin: 25px 0;
   border: 1px solid #e1e1e1;
   padding: 25px;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.75);
 }
-.page-archive .page-header #entry-author .author-image {
+.page-archive .page-header #entry-author .author-image,
+.type-page .page-header #entry-author .author-image {
   margin-left: 25px;
 }
-.page-archive .page-posts .post {
+.page-archive .page-posts .post,
+.type-page .page-posts .post {
   margin-bottom: 25px;
   padding-bottom: 25px;
   border-bottom: 1px solid #e1e1e1;
 }
-.page-archive .page-posts .post .entry-meta {
+.page-archive .page-posts .post .entry-meta,
+.type-page .page-posts .post .entry-meta {
   font-size: 0.9em;
   margin: 5px 0;
 }
 .page-archive .page-posts .post .entry-meta a,
-.page-archive .page-posts .post .entry-meta .updated {
+.type-page .page-posts .post .entry-meta a,
+.page-archive .page-posts .post .entry-meta .updated,
+.type-page .page-posts .post .entry-meta .updated {
   font-weight: bold;
 }
-.page-archive .page-posts .post .entry-image img {
+.page-archive .page-posts .post .entry-image img,
+.type-page .page-posts .post .entry-image img {
   max-width: 100%;
   width: 100%;
   height: auto;
   margin-bottom: 15px;
 }
-.page-archive .page-posts .post h2.entry-title {
+.page-archive .page-posts .post h2.entry-title,
+.type-page .page-posts .post h2.entry-title {
   margin-top: 0;
 }
 #site-footer {

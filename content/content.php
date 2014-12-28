@@ -4,7 +4,7 @@
  *
  */
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?= html_tag_schema('Article'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php echo html_tag_schema('Article'); ?>>
   <header class="entry-header">
     <?php
       if(is_single()){
@@ -35,7 +35,17 @@
 
   <?php if(is_single()): ?>
     <section class="entry-content" itemprop="articleBody">
-      <?php the_content(); ?>
+      <?php the_content();
+    		wp_link_pages( array(
+  				'before'      => '<nav class="navigation post-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement"><span class="page-links-title">' . __( 'Pages:', 'tw' ) . '</span>',
+  				'after'       => '</nav>',
+  				'link_before' => '<span>',
+  				'link_after'  => '</span>',
+  				'pagelink'    => '<span class="sr-only">' . __( 'Page', 'tw' ) . ' </span>%',
+  				'separator'   => '<span class="sr-only">, </span>',
+  				'echo'             => 0
+  			) );
+      ?>
     </section>
   <?php else: ?>
     <section class="entry-content" itemprop="description">
@@ -50,5 +60,9 @@
   </footer>
   <?php endif; ?>
 
-  <?php if(is_single()){get_template_part( 'author-bio' );}?>
+  <?php
+    if( is_single() && get_the_author_meta( 'description' ) ){
+      get_template_part( 'author-bio' );
+    }
+  ?>
 </article>
