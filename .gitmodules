@@ -28,3 +28,6 @@
 [submodule "includes/tw-wp-core"]
 	path = includes/tw-wp-core
 	url = https://mohamedhamad@github.com/thirdwunder/tw-core.git
+[submodule "includes/Mobile-Detect"]
+	path = includes/Mobile-Detect
+	url = https://mohamedhamad@github.com/serbanghita/Mobile-Detect.git

@@ -15,6 +15,28 @@ if(!class_exists('Tax_Meta_Class')){
   require_once("includes/Tax-Meta-Class/Tax-meta-class/Tax-meta-class.php");
 }
 
+
+/******************************************************
+*************** Optimized Image Sizes *****************
+******************************************************/
+/**** xlarge ****/
+tw_add_image_size('16x6', 'xlarge', true, false);
+
+/**** large ****/
+tw_add_image_size('16x6', 'large',  true, false);
+tw_add_image_size('16x9', 'large',  true, false);
+
+/**** Medium ****/
+tw_add_image_size('16x9', 'medium', true, false);
+
+/**** Small ****/
+tw_add_image_size('4x3',  'small',  true, true);
+tw_add_image_size('square', 'small',  true, false);
+
+/**** Small ****/
+tw_add_image_size('square', 'xthumb', true, false);
+
+
 /******************************************************
 ********************* Stylesheet **********************
 ******************************************************/
