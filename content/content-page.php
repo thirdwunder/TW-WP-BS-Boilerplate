@@ -8,13 +8,13 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php echo html_tag_schema(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php echo tw_html_tag_schema(); ?>>
 
-	<header class="entry-header">
+	<header class="page-header">
 		<h1 itemprop="name" class="entry-title"><?php the_title(); ?></h1>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content" itemprop="text">
+	<div class="page-content" itemprop="text">
 		<?php
   		the_content();
   		wp_link_pages( array(
@@ -29,7 +29,7 @@
 		?>
 	</div><!-- .entry-content -->
 
-  <footer class="entry-footer">
+  <footer class="page-footer">
 	<?php edit_post_link( __( 'Edit', 'tw' ), '<span class="edit-link">', '</span>' ); ?>
   </footer><!-- .entry-footer -->
 

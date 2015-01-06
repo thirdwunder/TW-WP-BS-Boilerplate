@@ -8,7 +8,7 @@
  * @subpackage Third Wunder
  * @since Third Wunder 1.0
  */
- $social_info   = get_theme_social_options();
+ $social_info   = tw_get_theme_social_options();
  $contact_info  = get_option('tw_theme_contact_options');
 get_header(); ?>
 
@@ -17,13 +17,13 @@ get_header(); ?>
 
 	<?php get_template_part( 'content/_breadcrumbs' ); ?>
 	<?php while ( have_posts() ): the_post(); ?>
-    <div id="page-contact" <?php post_class(); ?> <?php echo html_tag_schema('ContactPage'); ?>>
+    <div id="page-contact" <?php post_class(); ?> <?php echo tw_html_tag_schema('ContactPage'); ?>>
 
-      <header class="entry-header">
+      <header class="page-header">
     		<h1 itemprop="name" class="entry-title"><?php the_title(); ?></h1>
     	</header><!-- .entry-header -->
 
-      <div class="entry-content row" itemprop="text">
+      <div class="page-content row" itemprop="text">
         <?php if($social_info || $contact_info ): ?>
         <div class="col-md-4 contact-details">
           <?php if($contact_info): ?>
@@ -78,27 +78,28 @@ get_header(); ?>
           <?php endif; ?>
 
         </div><!-- .contact-details -->
-        <div class="col-md-8">
+        <div class="col-md-8 contact-form-area">
         <?php else: ?>
-        <div class="col-md-12">
+        <div class="col-md-12 contact-form-area">
         <?php endif; ?>
-          <?php
-        		the_content();
-        		wp_link_pages( array(
-      				'before'      => '<nav class="navigation post-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement"><span class="page-links-title">' . __( 'Pages:', 'tw' ) . '</span>',
-      				'after'       => '</nav>',
-      				'link_before' => '<span>',
-      				'link_after'  => '</span>',
-      				'pagelink'    => '<span class="sr-only">' . __( 'Page', 'tw' ) . ' </span>%',
-      				'separator'   => '<span class="sr-only">, </span>',
-      				'echo'             => 0
-      			) );
-      		?>
-
+          <div class="contact-form-wrapper">
+              <?php
+            		the_content();
+            		wp_link_pages( array(
+          				'before'      => '<nav class="navigation post-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement"><span class="page-links-title">' . __( 'Pages:', 'tw' ) . '</span>',
+          				'after'       => '</nav>',
+          				'link_before' => '<span>',
+          				'link_after'  => '</span>',
+          				'pagelink'    => '<span class="sr-only">' . __( 'Page', 'tw' ) . ' </span>%',
+          				'separator'   => '<span class="sr-only">, </span>',
+          				'echo'             => 0
+          			) );
+          		?>
+          </div>
         </div>
       </div>
 
-      <footer class="entry-footer">
+      <footer class="page-footer">
     	<?php edit_post_link( __( 'Edit', 'tw' ), '<span class="edit-link">', '</span>' ); ?>
       </footer><!-- .entry-footer -->
 

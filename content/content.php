@@ -3,15 +3,31 @@
  * The template used for displaying post content
  *
  */
+$img_size = 'large';
+if(class_exists('Mobile_Detect')){
+  $detect = new Mobile_Detect;
+  $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
+  switch($deviceType){
+    case 'phone':
+      $img_size = '4x3-small';
+      break;
+    case 'tablet':
+      $img_size = '16x9-medium';
+      break;
+    case 'computer':
+      $img_size = '16x9-large';
+      break;
+  }
+}
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php echo html_tag_schema('Article'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php echo tw_html_tag_schema('Article'); ?>>
   <header class="entry-header">
     <?php
       if(is_single()){
         $image_caption =  get_post( get_post_thumbnail_id($post->ID) )->post_excerpt;
       ?>
         <figure class="entry-image">
-          <?php the_post_thumbnail('large', array('itemprop'=>'image'));
+          <?php the_post_thumbnail($img_size, array('itemprop'=>'image'));
             if($image_caption): ?>
               <figcaption class="caption"><?php echo $image_caption;?></figcaption>
             <?php endif; ?>
@@ -22,7 +38,7 @@
       ?>
         <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" itemprop="url">
           <div class="entry-image">
-            <?php the_post_thumbnail('large', array('itemprop'=>'image')); ?>
+            <?php the_post_thumbnail($img_size, array('itemprop'=>'image')); ?>
           </div>
           <h2 class="entry-title" itemprop="headline"><?php the_title(); ?></h2>
         </a>

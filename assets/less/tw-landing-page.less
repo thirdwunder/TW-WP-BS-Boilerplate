@@ -1,0 +1,124 @@
+.landing-page{
+  .entry-header{
+    .entry-image{
+      position: relative;
+      img{
+       .fullwidth-image();
+      }
+    }
+    h1{
+      text-align: center;
+      border-bottom: 1px solid @color-line-light;
+      padding-bottom: 25px;
+      margin-bottom: 25px;
+
+    }
+
+    .section-video{
+      text-align:center;
+      background-size: cover !important;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
+      //background-attachment: fixed !important;
+
+
+      margin-left: auto;
+      margin-right: auto;
+      .clickable-video();
+    }
+  }
+
+  .entry-content{
+    .content, .content-with-form{
+      padding-top: 15px;
+      p{
+        font-size: 1.2em;
+        margin-bottom: 15px;
+      }
+    }
+
+    .content-with-form{
+
+      .lp_form_left,
+      .lp_form_right{
+        margin-top: -15px;
+      }
+
+      .lp_form_left{
+        margin-right: 30px;
+      }
+      .lp_form_right{
+        margin-left: 30px;
+      }
+    }
+
+    #lp_container{
+      padding-left: 15px;
+      padding-right: 15px;
+      margin-bottom: 30px;
+
+      .gform_footer{
+        .row();
+        input[type="submit"]{
+          .btn-lg();
+          width: 100%;
+        }
+      }
+
+    }
+  }
+
+}
+
+@screen-sm: 768px;
+@screen-md: 992px;
+@screen-lg: 1200px;
+
+@media only screen and (max-width: @screen-sm){
+
+	.landing-page{
+  	.entry-header{
+    	.section-video{
+
+    	}
+  	}
+
+    .entry-content{
+      .content-with-form{
+        #lp-container{
+
+        }
+        .lp_form_right,
+        .lp_form_left{
+          float: none !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          margin-bottom: 30px;
+        }
+        .lp_form_right{
+          margin-left: 0 !important;
+        }
+        lp_form_left{
+          margin-right: 0 !important;
+        }
+      }
+    }
+  }
+}
+
+
+@media only screen and (min-width: @screen-sm){
+
+}
+
+
+/* Medium devices (desktops, 992px and up) */
+@media only screen and (min-width: @screen-md) {
+
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media only screen and (min-width: @screen-lg) {
+
+}

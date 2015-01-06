@@ -1,4 +1,4 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class('row'); ?> <?php echo html_tag_schema('Article'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('row'); ?> <?php echo tw_html_tag_schema('Article'); ?>>
   <div class="entry-image col-sm-3 col-md-3">
     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" itemprop="url">
       <?php the_post_thumbnail('medium', array('itemprop'=>'image')); ?>
@@ -13,10 +13,10 @@
           <?php echo __('by','mh'); ?> <span class="fn" itemprop="name"><?php the_author_posts_link();?></span>
       </span>
       <span class="entry-date">
-        on <time class="updated" itemprop="datePublished" datetime="<?php echo get_the_time('Y-m-j'); ?>T<?php echo get_the_time('H:i:s'); ?>" pubdate><?php echo get_the_time('F j, Y'); ?></time>
+        <?php _e('on','tw');?> <time class="updated" itemprop="datePublished" datetime="<?php echo get_the_time('Y-m-j'); ?>T<?php echo get_the_time('H:i:s'); ?>" pubdate><?php echo get_the_time('M j, Y'); ?></time>
       </span>
       <span class="entry-categories">
-        in <?php the_category( ','); ?>
+        <?php _e('in','tw');?> <?php the_category( ','); ?>
       </span>
     </div><!-- .entry-meta -->
 

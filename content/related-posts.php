@@ -30,12 +30,14 @@ if ($tags){
         while( $my_query->have_posts() ){
           $my_query->the_post();
         ?>
-          <article class="col-xs-12 col-sm-4 col-md-4" <?php echo html_tag_schema(); ?>>
+          <article class="related-post-container col-xs-12 col-sm-4 col-md-4" <?php echo tw_html_tag_schema(); ?>>
             <div class="related-post thumbnail">
-              <a href="<?php the_permalink(); ?>"  itemprop="url"><?php the_post_thumbnail('medium', array('class'=>'','itemprop'=>'image')) ;?></a>
+              <a href="<?php the_permalink(); ?>"  itemprop="url"><?php the_post_thumbnail('4x3-small', array('class'=>'','itemprop'=>'image')) ;?></a>
               <div class="caption">
                 <h3 itemprop="headline"><a href="<?php the_permalink(); ?>"  itemprop="url"><?php the_title(); ?></a></h3>
                 <span class="sr-only " itemprop="description"><?php the_excerpt(); ?></span>
+                <time class="updated" itemprop="datePublished" datetime="<?php echo get_the_time('Y-m-j'); ?>T<?php echo get_the_time('H:i:s'); ?>" pubdate><?php echo get_the_time('F j, Y'); ?></time>
+
               </div>
             </div>
           </article>

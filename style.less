@@ -64,14 +64,21 @@ For modern browsers */
 @color-secondary: #666;
 @color-tertiary: #999;
 
+@color-link: #337ab7;
+@color-link-hover: darken(@color-link, 10%);
+
 @color-heading: #000;
 @color-body: #333;
 @color-line-light: #e1e1e1;
 @color-line-dark: #ccc;
 @color-caption-bg: #f1f1f1;
 
-@color-link: blue;
-@color-link-hover: darken(@color-link, 10%);
+@color-footer-bg: #000;
+@color-footer-body: #fff;
+@color-footer-lines: #333;
+@color-footer-link: @color-link;
+@color-footer-link-hover: @color-link-hover;
+
 
 @color-btn-default: white;
 @color-btn-default-hover: darken(@color-btn-default, 10%);
@@ -88,6 +95,8 @@ For modern browsers */
 @color-btn-danger:  red;
 @color-btn-danger-hover:  darken(@color-btn-danger, 10%);
 
+@base-font: 16px;
+@base-line-height: @base-font + (@base-font/2);
 
 /***** Font Definitions *****/
 @font-heading: @font-lato;
@@ -105,6 +114,7 @@ For modern browsers */
 @import "assets/less/tw-colors-social.less";
 @import "assets/less/tw-wp-general.less";
 @import "assets/less/tw-base-fonts.less";
+@import "assets/less/tw-landing-page.less";
 
 
 h1, h2, h3, h4, h5{
@@ -116,6 +126,8 @@ html, body{
   min-height: 100%;
   font-family: @font-body;
   color: @color-body;
+  font-size: @base-font;
+  line-height: @base-line-height;
 }
 
 
@@ -240,11 +252,25 @@ body{
 
   }
 
+  .contact-form-area{
+    .contact-form-wrapper{
+      padding-left: 15px;
+      padding-right: 15px;
+
+      .gform_footer{
+        input[type="submit"]{
+          .pull-right();
+        }
+      }
+    }
+  }
+
 
 }
 
 .post,
-.type-post{
+.type-post,
+.single{
   .entry-header{
     .entry-image{
       position: relative;
@@ -276,6 +302,7 @@ body{
   }
 
   .entry-footer{
+    margin-top: 25px;
     .entry-tags{
       margin: 15px 0;
       &::before{
@@ -288,6 +315,7 @@ body{
 
   .author-bio-box();
 }
+
 
 .page-archive, .type-page{
   .page-header{
@@ -314,22 +342,40 @@ body{
   }
 
   .page-footer{
-
+    margin-top: 25px;
   }
 }
 
 
+#related-posts{
+  header{
+    h3{
+      text-transform: capitalize;
+    }
+  }
+  .related-post-inner{
+    .related-post-container{
+      .related-post{
+        min-height: 350px;
+        .caption{
+          h3{
+            margin-top: 10px;
+          }
+          time.updated{
+            font-size: 0.8em;
+            font-style: italic;
+          }
+        }
+      }
+    }
+  }
+}
 
 #site-footer{
-  background-color: #000;
-  color: white;
-  padding: 10px 0;
-  margin-top: 25px;
+
+
   .footer-container{
-    #copyright{}
-    #credit{
-      text-align: right;
-    }
+
   }
 }
 
@@ -349,6 +395,12 @@ body{
 		top: 0; left: 0; right: 0;
 		z-index: 99;
 	}
+
+
+
+  #site-footer{
+
+  }
 
 }
 

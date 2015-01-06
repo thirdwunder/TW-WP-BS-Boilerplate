@@ -48,8 +48,61 @@ body{
 /***********************
 *** Menu Navigation  ***
 ************************/
+#menu-mobile{
+ .mobile-contact-social{
+   border-top: 1px solid @color-line-light;
+   h4{
+     padding-left: 15px;
+   }
+   ul{
+     list-style: none;
+     padding-left: 15px;
+     margin: 10px auto;
+     li{
+       display: inline;
+       display: inline-block;
+
+       &.width-1,
+       &.width-2,
+       &.width-3,
+       &.width-4,
+       &.width-5,
+       &.width-6{
+         font-size: 2.2em;
+         margin-right: 5px;
+       }
+
+       &.width-7,
+       &.width-8{
+         font-size: 1.75em;
+         margin-right: 5px;
+       }
+
+       &.width-9,
+       &.width-10{
+         font-size: 1.6em;
+         margin-right: 4px;
+       }
+
+
+     }
+   }
+ }
+}
 #menu-primary{
+  #main-mobile-search{
+    #mobile-searchform{
+      .form-group{
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+  }
   .navbar-header{
+    #mobile-search-toggle{
+      padding: 6px 15px;
+    }
+
     .navbar-brand{
       &.navbar-brand-logo{
         padding: 7px 20px;
@@ -193,7 +246,8 @@ img.alignright{
   }
 
   textarea{
-      height: auto;
+      height: 150px !important;
+      .form-control();
   }
 
   p.form-allowed-tags{
@@ -302,6 +356,31 @@ img.alignright{
         li{
           margin: 3px 0;
         }
+      }
+    }
+  }
+}
+
+.footer-widgets{
+  .widget-area{
+    .widget{
+      color: @color-footer-body;
+      h4{
+        color: @color-footer-body;
+        border-bottom: 1px solid @color-footer-lines;
+        padding: 5px 0 10px 0;
+      }
+      a{
+        color: @color-footer-link;
+        &:hover{
+          color: @color-footer-link-hover
+        }
+      }
+    }
+
+    .widget_recent_entries{
+      li{
+        border-bottom: 1px solid @color-footer-lines;
       }
     }
   }
@@ -506,4 +585,146 @@ img.alignright{
       margin-left: 1.5em;
     }
   }
+}
+
+
+/********************
+**** Site Footer ****
+********************/
+#site-footer{
+  background-color: @color-footer-bg;
+  color: @color-footer-body;
+  padding: 10px 0;
+  margin-top: 25px;
+  a{
+    color: @color-footer-link;
+    &:hover{
+      color: @color-footer-link-hover;
+    }
+  }
+
+  .footer-container{
+
+
+    #footer-menu{
+      margin-top: 15px;
+      ul#menu-footer-menu{
+        list-style: none;
+        padding-left: 0;
+        font-size: 0.9em;
+
+        li{
+          display: inline-block;
+          margin-right: 10px;
+          &::after{
+            content: '|';
+            margin-left: 10px;
+            color: @color-footer-lines;
+          }
+          &:last-child{
+            &::after{
+              content: none;
+            }
+          }
+        }
+      }
+    }
+
+    #copyright, #credit{
+      font-size: 0.8em;
+    }
+    #copyright{}
+    #credit{
+      text-align: right;
+    }
+  }
+}
+
+
+/********************
+**** Back to Top ****
+********************/
+
+#top-link-block{
+  &.affix-top {
+    position: absolute; /* allows it to "slide" up into view */
+    bottom: -82px;
+    right: 15px;
+    z-index: 1001;
+  }
+  &.affix {
+    position: fixed; /* keeps it on the bottom once in view */
+    bottom: 35px;
+    right: 15px;
+    z-index: 1001;
+  }
+}
+
+
+.scroll-top-wrapper {
+  position: fixed;
+	opacity: 0;
+	visibility: hidden;
+	overflow: hidden;
+	z-index: 99999999;
+	right: 30px;
+	bottom: 30px;
+
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+
+  &.show {
+    visibility:visible;
+  	opacity: 1.0;
+  }
+}
+
+
+@screen-sm: 768px;
+@screen-md: 992px;
+@screen-lg: 1200px;
+
+@media only screen and (max-width: @screen-sm){
+
+	body{
+    &.logged-in{
+      margin-top: 0px;
+      .navbar-fixed-top{
+        top:46px;
+      }
+    }
+  }
+
+  #site-footer{
+    padding: 25px inherit;
+    .footer-container{
+      #copyright{}
+      #credit, #copyright{
+        text-align: left;
+      }
+    }
+  }
+}
+
+
+@media only screen and (min-width: @screen-sm){
+
+
+}
+
+
+/* Medium devices (desktops, 992px and up) */
+@media only screen and (min-width: @screen-md) {
+
+
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media only screen and (min-width: @screen-lg) {
+
+
 }

@@ -24,7 +24,12 @@
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 </head>
 <body <?php body_class(); ?> itemscope="itemscope" itemtype="http://schema.org/WebPage">
-
+  <?php
+    if(class_exists('Mobile_Detect')){
+      $detect = new Mobile_Detect;
+      $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
+    }
+  ?>
   <!-- Offcanvas Menu -->
   <nav id="menu-mobile" class="navmenu navmenu-default navmenu-fixed-right offcanvas" itemtype="http://schema.org/SiteNavigationElement">
     <a class="navmenu-brand" href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>" rel="home">
@@ -45,9 +50,24 @@
         	);
       	}
     ?>
-    <div id="mobile-search" class="">
-      <?php get_template_part('searchform'); ?>
-    </div>
+
+    <?php
+      $social_info   = tw_get_theme_social_options();
+      if($social_info):
+        $count = count($social_info);
+      ?>
+      <div class="mobile-contact-social">
+       <h4 class=""><?php echo __('Connect with us','tw') ;?></h4>
+        <ul>
+          <?php foreach($social_info as $network=>$details): ?>
+            <li class="width-<?php echo $count; ?>">
+              <a class="contact-<?php echo $network; ?>" href="<?php echo $details['url']; ?>" target="_blank" title="<?php echo ucfirst($network); ?>"><i class="fa <?php echo $details['icon']; ?>"></i></a>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+    <?php endif; ?>
+
   </nav><!-- .offcanvas -->
 
 
@@ -58,6 +78,7 @@
       <div class="container">
         <div class="navbar-header">
 
+          <!-- Mobile Menu Toggle -->
           <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
             <span class="sr-only"><?php _e('Navigation','mh'); ?></span>
             <span class="icon-bar"></span>
@@ -65,11 +86,20 @@
             <span class="icon-bar"></span>
           </button><!-- .navbar-toggle -->
 
+          <!-- Mobile Search Toggle -->
+          <button id="mobile-search-toggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-mobile-search">
+            <span class="sr-only"><?php _e('Search','mh'); ?></span>
+            <i class="fa fa-search"></i>
+          </button><!-- .navbar-toggle -->
+
+
+
           <a class="navbar-brand navbar-brand-logo" href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>" rel="home">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo.png" alt="<?php bloginfo('name'); ?>
             Logo" />
             <span class="sr-only"><?php bloginfo('name'); ?></span>
           </a> <!-- .navbar-brand -->
+
         </div><!-- .navbar-header -->
 
         <div class="navbar-collapse collapse navbar-responsive-collapse" >
@@ -87,6 +117,25 @@
           	}
         ?>
         </div><!-- /.navbar-collapse -->
+
+        <div id="main-mobile-search" class="collapse navbar-collapse navbar-responsive-collapse" >
+
+          <form class="form-inline visible-xs" role="search" method="get" id="mobile-searchform" action="<?php echo home_url( '/' ); ?>">
+              <div class="form-group">
+                  <label class="screen-reader-text sr-only" for="s"><?php _e('Search for','mh');?>:</label>
+                  <div class="input-group">
+
+                    <input class="form-control "type="text" value="" name="s" id="s" placeholder="<?php _e('Search','mh'); ?>" />
+          <!--           <span class="input-group-addon"><i class="fa fa-search"></i></span> -->
+                    <div class="input-group-btn">
+                          <button class="btn btn-default" type="submit" id="searchsubmit" ><i class="fa fa-search"></i></button>
+                    </div>
+                  </div>
+              </div>
+
+          </form>
+
+        </div>
 
       </div><!-- .container-fluid -->
     </nav><!-- #menu-primary -->
