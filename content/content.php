@@ -3,22 +3,6 @@
  * The template used for displaying post content
  *
  */
-$img_size = 'large';
-if(class_exists('Mobile_Detect')){
-  $detect = new Mobile_Detect;
-  $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
-  switch($deviceType){
-    case 'phone':
-      $img_size = '4x3-small';
-      break;
-    case 'tablet':
-      $img_size = '16x9-medium';
-      break;
-    case 'computer':
-      $img_size = '16x9-large';
-      break;
-  }
-}
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php echo tw_html_tag_schema('Article'); ?>>
   <header class="entry-header">
@@ -27,7 +11,9 @@ if(class_exists('Mobile_Detect')){
         $image_caption =  get_post( get_post_thumbnail_id($post->ID) )->post_excerpt;
       ?>
         <figure class="entry-image">
-          <?php the_post_thumbnail($img_size, array('itemprop'=>'image'));
+          <?php //the_post_thumbnail($img_size, array('itemprop'=>'image'));
+            echo tw_the_post_thumbnail(array('4x3-small','16x9-medium','16x9-large'), array('itemprop'=>'image'));
+
             if($image_caption): ?>
               <figcaption class="caption"><?php echo $image_caption;?></figcaption>
             <?php endif; ?>

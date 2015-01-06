@@ -1,4 +1,7 @@
 <?php
+if(!class_exists('Mobile_Detect')){
+  require_once 'includes/Mobile-Detect/Mobile_Detect.php';
+}
 
 include_once('includes/wp-bootstrap-navwalker/wp_bootstrap_navwalker.php');
 include_once('includes/tw-wp-core/tw_helper_functions.php');
@@ -15,9 +18,7 @@ if(!class_exists('Tax_Meta_Class')){
   require_once("includes/Tax-Meta-Class/Tax-meta-class/Tax-meta-class.php");
 }
 
-if(!class_exists('Mobile_Detect')){
-  require_once 'includes/Mobile-Detect/Mobile_Detect.php';
-}
+
 
 /******************************************************
 *************** Optimized Image Sizes *****************
@@ -32,6 +33,7 @@ tw_add_image_size('16x9', 'large',  true, false);
 /**** Medium ****/
 tw_add_image_size('16x6', 'medium',  true, false);
 tw_add_image_size('16x9', 'medium',  true, false);
+tw_add_image_size('4x3',  'medium',  true, false);
 
 /**** Small ****/
 tw_add_image_size('4x3',  'small',  true, false);

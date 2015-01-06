@@ -24,12 +24,7 @@
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 </head>
 <body <?php body_class(); ?> itemscope="itemscope" itemtype="http://schema.org/WebPage">
-  <?php
-    if(class_exists('Mobile_Detect')){
-      $detect = new Mobile_Detect;
-      $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
-    }
-  ?>
+
   <!-- Offcanvas Menu -->
   <nav id="menu-mobile" class="navmenu navmenu-default navmenu-fixed-right offcanvas" itemtype="http://schema.org/SiteNavigationElement">
     <a class="navmenu-brand" href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>" rel="home">

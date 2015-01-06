@@ -7,30 +7,15 @@
  * @since TW 1.0
  */
 
-$img_size = '16x9-large';
-if(class_exists('Mobile_Detect')){
-  $detect = new Mobile_Detect;
-  $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
-  switch($deviceType){
-    case 'phone':
-      $img_size = '4x3-small';
-      break;
-    case 'tablet':
-      $img_size = '16x9-medium';
-      break;
-    case 'computer':
-      $img_size = '16x9-large';
-      break;
-  }
-}
-
-
 $sidebar      = lp_get_value($post, 'default', 'conversion-area-placement');
 $video_url    = lp_get_value($post, 'default', 'video_url') ? trim(lp_get_value($post, 'default', 'video_url')) : null;
 
 $video_poster = null;
 $video_bg  = null;
+$image_sizes = array('4x3-small','16x6-medium','16x6-large');
+
 if(has_post_thumbnail()){
+  $x = tw_get_image_src(get_post_thumbnail_id(get_the_id()), $image_sizes);
   $video_poster = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_id()), $img_size);
   $video_bg = "background: url('$video_poster[0]');";
 }
@@ -51,7 +36,8 @@ get_header(); ?>
 
          <?php elseif( has_post_thumbnail()): ?>
           <figure class="entry-image">
-            <?php the_post_thumbnail('16x6-large', array('itemprop'=>'image')); ?>
+            <?php //the_post_thumbnail('16x6-large', array('itemprop'=>'image')); ?>
+            <?php echo tw_the_post_thumbnail($image_sizes, array('itemprop'=>'image')); ?>
           </figure>
           <?php endif; ?>
 

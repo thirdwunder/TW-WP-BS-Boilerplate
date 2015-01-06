@@ -7189,8 +7189,8 @@ button.close {
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url('../fonts/fontawesome-webfont.eot?v=4.2.0');
-  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.2.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff?v=4.2.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.2.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');
+  src: url('//netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.eot?v=4.2.0');
+  src: url('//netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.eot?#iefix&v=4.2.0') format('embedded-opentype'), url('//netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.woff?v=4.2.0') format('woff'), url('//netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.ttf?v=4.2.0') format('truetype'), url('//netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -8927,7 +8927,7 @@ button.close {
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  margin-top: -75px;
+  margin-top: 0px;
   width: 100px;
   height: 100px;
   z-index: 30;
@@ -9359,14 +9359,14 @@ body.logged-in {
 #menu-mobile .mobile-contact-social ul li.width-9,
 #menu-mobile .mobile-contact-social ul li.width-10 {
   font-size: 1.6em;
-  margin-right: 4px;
+  margin-right: 0px;
 }
 #menu-primary #main-mobile-search #mobile-searchform .form-group {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 #menu-primary .navbar-header #mobile-search-toggle {
-  padding: 6px 15px;
+  padding: 5px 15px;
 }
 #menu-primary .navbar-header .navbar-brand.navbar-brand-logo {
   padding: 7px 20px;
@@ -10237,7 +10237,7 @@ textarea.widget_categories .postform {
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  margin-top: -75px;
+  margin-top: 0px;
   width: 100px;
   height: 100px;
   z-index: 30;

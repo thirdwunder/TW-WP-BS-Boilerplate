@@ -1,7 +1,8 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('row'); ?> <?php echo tw_html_tag_schema('Article'); ?>>
   <div class="entry-image col-sm-3 col-md-3">
     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" itemprop="url">
-      <?php the_post_thumbnail('medium', array('itemprop'=>'image')); ?>
+      <?php //the_post_thumbnail($img_size, array('itemprop'=>'image')); ?>
+      <?php echo tw_the_post_thumbnail(array('4x3-medium','4x3-medium','4x3-medium'), array('itemprop'=>'image'));?>
     </a>
   </div>
   <div class="col-sm-9 col-md-9">
@@ -25,8 +26,8 @@
     </section>
     <div class="entry-meta post-meta">
       <span class="entry-comments">
-        <a href="<?php the_permalink(); ?>#comments" title="<?php the_title(); ?>"><i class="fa fa-comments"></i> &nbsp;<?php comments_number( '<span itemprop="commentCount">0</span> Comments', '<span itemprop="commentCount">1</span> Comment', '<span itemprop="commentCount">%</span> Comments' ); ?>
-      </span></
+        <a href="<?php the_permalink(); ?>#comments" title="<?php the_title(); ?>"><i class="fa fa-comments"></i> &nbsp;<?php comments_number( '<span itemprop="commentCount">0</span> Comments', '<span itemprop="commentCount">1</span> Comment', '<span itemprop="commentCount">%</span> Comments' ); ?></a>
+      </span>
     </div>
   </div>
 </article>
