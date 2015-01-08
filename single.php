@@ -9,34 +9,40 @@
 $theme_general_options = get_option('tw_theme_general_options') ? get_option('tw_theme_general_options') : null;
 $primary_sidebar = $theme_general_options['enable_sidebar'];
 get_header(); ?>
-<?php if($primary_sidebar):?>
-<div id="primary" class="content-area col-xs-12 col-sm-8 col-md-9">
-<?php else: ?>
-<div id="primary" class="content-area col-xs-12 col-sm-12 col-md-12">
-<?php endif;?>
-	<main id="main" class="site-main" role="main" itemprop="mainContentOfPage">
+<!-- Site Container -->
+<div id="site-content" class="container">
+  <div id="site-container" class="row">
 
-	<?php get_template_part( 'content/_breadcrumbs' ); ?>
+    <?php if($primary_sidebar):?>
+    <div id="primary" class="content-area col-xs-12 col-sm-8 col-md-9">
+    <?php else: ?>
+    <div id="primary" class="content-area col-xs-12 col-sm-12 col-md-12">
+    <?php endif;?>
+    	<main id="main" class="site-main" role="main" itemprop="mainContentOfPage">
 
-	<?php
-		while ( have_posts() ) : the_post();
-		  get_template_part( 'content/content', get_post_format() );
+    	<?php get_template_part( 'content/_breadcrumbs' ); ?>
 
-      tw_post_nav();
-      posts_nav_link();
+    	<?php
+    		while ( have_posts() ) : the_post();
+    		  get_template_part( 'content/content', get_post_format() );
 
-      get_template_part('content/related-posts');
+          tw_post_nav();
+          posts_nav_link();
 
-		  if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+          get_template_part('content/related-posts');
+
+    		  if ( comments_open() || get_comments_number() ) :
+    				comments_template();
+    			endif;
 
 
-    endwhile;
-	?>
-  </main><!-- .site-main -->
+        endwhile;
+    	?>
+      </main><!-- .site-main -->
 
-</div><!-- .content-area -->
-<?php if($primary_sidebar){get_sidebar( 'sidebar' );} ?>
+    </div><!-- .content-area -->
+    <?php if($primary_sidebar){get_sidebar( 'sidebar' );} ?>
 
+  </div><!-- #site-container -->
+</div><!-- #site-content -->
 <?php get_footer(); ?>

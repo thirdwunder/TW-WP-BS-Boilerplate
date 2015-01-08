@@ -8,31 +8,34 @@
  */
  get_header();
 ?>
-<div id="primary" class="content-area col-xs-12 col-sm-12 col-md-12">
+<!-- Site Container -->
+<div id="site-content" class="container">
+  <div id="site-container" class="row">
 
-	<main id="main" class="site-main" role="main" itemprop="mainContentOfPage">
+    <div id="primary" class="content-area col-xs-12 col-sm-12 col-md-12">
+    	<main id="main" class="site-main" role="main" itemprop="mainContentOfPage">
+    	<?php get_template_part( 'content/_breadcrumbs' ); ?>
+      <article <?php post_class(); ?> <?php echo tw_html_tag_schema(); ?>>
+        <header class="page-header">
+      		<h1 class="entry-title"><?php _e("Ooops! That's embarrassing!",'tw'); ?></h1>
+      	</header><!-- .entry-header -->
 
-	<?php get_template_part( 'content/_breadcrumbs' ); ?>
+        <div class="page-content" itemprop="text">
+          <p><?php _e("We couldn't find the page what you were looking for!",'tw');?></p>
 
-  <article <?php post_class(); ?> <?php echo tw_html_tag_schema(); ?>>
-    <header class="page-header">
-  		<h1 class="entry-title"><?php _e("Ooops! That's embarrassing!",'tw'); ?></h1>
-  	</header><!-- .entry-header -->
+          <p><?php _e("Try a search to find what you were looking for!",'tw');?></p>
 
-    <div class="page-content" itemprop="text">
-      <p><?php _e("We couldn't find the page what you were looking for!",'tw');?></p>
+          <?php get_template_part('searchform'); ?>
+        </div>
+        <footer class="page-footer">
 
-      <p><?php _e("Try a search to find what you were looking for!",'tw');?></p>
+        </footer>
+      </article>
 
-      <?php get_template_part('searchform'); ?>
-    </div>
-    <footer class="page-footer">
+    	</main><!-- .site-main -->
+    </div><!-- .content-area -->
 
-    </footer>
-  </article>
-
-	</main><!-- .site-main -->
-</div><!-- .content-area -->
-<?php if($primary_sidebar){get_sidebar( 'sidebar' );} ?>
+  </div><!-- #site-container -->
+</div><!-- #site-content -->
 
 <?php get_footer(); ?>

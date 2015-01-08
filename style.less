@@ -73,12 +73,11 @@ For modern browsers */
 @color-line-dark: #ccc;
 @color-caption-bg: #f9f9f9;
 
-@color-footer-bg: #000;
-@color-footer-body: #fff;
-@color-footer-lines: #333;
-@color-footer-link: @color-link;
-@color-footer-link-hover: @color-link-hover;
-
+@color-inverse-bg: #000;
+@color-inverse-body: #fff;
+@color-inverse-line: #333;
+@color-inverse-link: @color-link;
+@color-inverse-link-hover: @color-link-hover;
 
 @color-btn-default: white;
 @color-btn-default-hover: darken(@color-btn-default, 10%);
@@ -127,18 +126,14 @@ html, body{
   min-height: 100%;
   font-family: @font-body;
   color: @color-body;
+  font-weight: 300;
   font-size: @base-font;
   line-height: @base-line-height;
 }
 
 
 body{
-  &.logged-in{
 
-    .navbar-fixed-top{
-      top:32px;
-    }
-  }
 
 }
 
@@ -218,41 +213,7 @@ blockquote{
         li{
           display: inline-block;
           font-size: 2.5em;
-          a{
-            &.contact-facebook{
-              color: @color-facebook;
-            }
-            &.contact-twitter{
-              color: @color-twitter;
-            }
-            &.contact-instagram{
-              color: @color-instagram;
-            }
-            &.contact-pinterest{
-              color: @color-pinterest;
-            }
-            &.contact-linkedin{
-              color: @color-linkedin;
-            }
-            &.contact-youtube{
-              color: @color-youtube;
-            }
-            &.contact-googleplus{
-              color: @color-googleplus;
-            }
-            &.contact-flickr{
-              color: @color-flickr;
-            }
-            &.contact-tumblr{
-              color: @color-tumblr;
-            }
-            &.contact-vimeo{
-              color: @color-vimeo;
-            }
-            &.contact-slideshare{
-              color: @color-slideshare;
-            }
-          }
+          .social-link-colors();
         }
       }
 

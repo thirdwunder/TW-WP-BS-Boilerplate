@@ -166,6 +166,3 @@
 
   </header><!-- #site-header -->
 
-  <!-- Site Container -->
-  <div id="site-content" class="container">
-    <div id="site-container" class="row">

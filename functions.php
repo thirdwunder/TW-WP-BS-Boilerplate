@@ -2,21 +2,25 @@
 if(!class_exists('Mobile_Detect')){
   require_once 'includes/Mobile-Detect/Mobile_Detect.php';
 }
+if(!class_exists('AT_Meta_Box')){
+  require_once("includes/My-Meta-Box/meta-box-class/my-meta-box-class.php");
+}
+if(!class_exists('Tax_Meta_Class')){
+  require_once("includes/Tax-Meta-Class/Tax-meta-class/Tax-meta-class.php");
+}
 
 include_once('includes/wp-bootstrap-navwalker/wp_bootstrap_navwalker.php');
 include_once('includes/tw-wp-core/tw_helper_functions.php');
 include_once('includes/tw-wp-core/tw_wp_functions.php');
 include_once('includes/tw-wp-core/tw_theme_admin_settings.php');
 include_once('includes/tw-wp-core/tw_wp_bootstrap_navwalker.php');
+include_once('includes/tw-wp-core/tw_wp_widgets.php');
 include_once('includes/tw-wp-core/tw_lp_functions.php');
 
-if(!class_exists('AT_Meta_Box')){
-  require_once("includes/My-Meta-Box/meta-box-class/my-meta-box-class.php");
-}
 
-if(!class_exists('Tax_Meta_Class')){
-  require_once("includes/Tax-Meta-Class/Tax-meta-class/Tax-meta-class.php");
-}
+
+
+
 
 
 
