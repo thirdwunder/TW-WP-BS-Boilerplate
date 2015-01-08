@@ -15,6 +15,30 @@ body{
 }
 
 
+blockquote{
+  border: none;
+  padding: 30px;
+  margin: 10px 0;
+  &::before{
+    font-family: @font-fontawesome;
+    font-size: 2em;
+    content: @fa-var-quote-left;
+    float: left;
+    margin-right: 20px;
+    margin-top: 20px;
+  }
+  p{
+    font-size: 1.3em;
+    line-height: 1.4em;
+    padding-left: 50px;
+  }
+  footer{
+    text-align: right;
+    font-style: italic;
+    margin: 15px 0 5px 0;
+  }
+}
+
 .sticky{
   background-color: inherit;
 }
@@ -25,7 +49,12 @@ body{
   background-color: inherit;
 }
 
-
+.breadcrumb{
+  & > li{
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
 
 /***********************
 ****** Author Bio  ******
@@ -48,6 +77,26 @@ body{
 /***********************
 *** Menu Navigation  ***
 ************************/
+#site-header{
+  #menu-top{
+    &.navbar{
+      min-height: 25px;
+      border: none;
+    }
+  }
+}
+#menu-top{
+  margin-bottom: 0;
+  ul.navbar-nav{
+    li{
+      a{
+        font-size: 0.8em;
+        padding-top:5px;
+        padding-bottom: 5px;
+      }
+    }
+  }
+}
 #menu-mobile{
  .mobile-contact-social{
    border-top: 1px solid @color-line-light;
@@ -90,6 +139,10 @@ body{
  }
 }
 #menu-primary{
+  &.with-top{
+    margin-top: 30px;
+  }
+
   #main-mobile-search{
     #mobile-searchform{
       .form-group{
@@ -131,6 +184,7 @@ body{
   .entry-meta{
       list-style: none;
       padding-left: 0;
+      font-size: 0.9em;
       li{
         display: inline-block;
         width: 49%;
@@ -169,6 +223,9 @@ body{
     }
 }
 
+.entry-tags{
+  font-size: 0.9em;
+}
 .post-edit-link{
   .btn();
   .btn-default();
@@ -179,6 +236,131 @@ body{
     margin-right: 5px;
   }
 }
+
+/********************
+*** Image Slider  ***
+********************/
+.gallery-carousel{
+  .carousel-indicators{
+    bottom:0;
+    margin-left: 0px;
+    padding-left: 30px;
+    left: 0;
+    width: 100%;
+    text-align: left;
+  }
+  .carousel-inner{
+    .item{
+      .carousel-caption{
+        position: relative;
+        width: 100%;
+        height: auto;
+        background-color: black;
+        //background-color: rgba(0,0,0, 0.75);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        text-align: right;
+        padding: 10px 15px;
+        min-height: 45px;
+        h3{
+          color: white;
+          font-size: 0.9em;
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+        p{
+          font-size: 0.8em;
+        }
+      }
+    }
+  }
+  .carousel-control{
+
+    &.left, &.right{
+      .fa{
+        font-size: 2.5em;
+        position: absolute;
+        top: 50%;
+        z-index: 5;
+        display: inline-block;
+      }
+    }
+    &.left{
+      .fa{
+        right: 50%;
+      }
+    }
+    &.right{
+      .fa{
+        left: 50%;
+      }
+    }
+  }
+}
+
+/*
+  Bootstrap Carousel Fade Transition (for Bootstrap 3.3.x)
+  CSS from:       http://codepen.io/transportedman/pen/NPWRGq
+  and:            http://stackoverflow.com/questions/18548731/bootstrap-3-carousel-fading-to-new-slide-instead-of-sliding-to-new-slide
+  Inspired from:  http://codepen.io/Rowno/pen/Afykb
+*/
+.carousel-fade{
+  .carousel-inner{
+    .item {
+      opacity: 0;
+      transition-property: opacity;
+    }
+    .active {
+      opacity: 1;
+
+      &.left,
+      &.right {
+        left: 0;
+        opacity: 0;
+        z-index: 1;
+      }
+
+      .next.left,
+      .prev.right {
+        opacity: 1;
+      }
+
+    }
+  }
+
+  .carousel-control {
+    z-index: 2;
+  }
+}
+
+
+/*
+  WHAT IS NEW IN 3.3: "Added transforms to improve carousel performance in modern browsers."
+  Need to override the 3.3 new styles for modern browsers & apply opacity
+*/
+@media all and (transform-3d), (-webkit-transform-3d) {
+    .carousel-fade .carousel-inner > .item.next,
+    .carousel-fade .carousel-inner > .item.active.right {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.prev,
+    .carousel-fade .carousel-inner > .item.active.left {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.next.left,
+    .carousel-fade .carousel-inner > .item.prev.right,
+    .carousel-fade .carousel-inner > .item.active {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+}
+
 
 /********************
 ******* Images ******
@@ -684,11 +866,7 @@ img.alignright{
 	right: 30px;
 	bottom: 30px;
 
-	-webkit-transition: all 0.5s ease-in-out;
-	-moz-transition: all 0.5s ease-in-out;
-	-ms-transition: all 0.5s ease-in-out;
-	-o-transition: all 0.5s ease-in-out;
-	transition: all 0.5s ease-in-out;
+  .transition(all, 0.5s, ease-in-out);
 
   &.show {
     visibility:visible;
@@ -712,6 +890,12 @@ img.alignright{
     }
   }
 
+  #menu-primary{
+    &.with-top{
+      margin-top: 0px;
+    }
+  }
+
   #site-footer{
     padding: 25px inherit;
     .footer-container{
@@ -721,6 +905,25 @@ img.alignright{
       }
     }
   }
+
+  .gallery-carousel{
+    .carousel-indicators{
+
+    }
+    .carousel-inner{
+      .item{
+        .carousel-caption{
+
+        }
+      }
+    }
+    .carousel-control{
+
+    }
+  }
+
+
+
 }
 
 

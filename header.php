@@ -68,8 +68,34 @@
 
   <!-- Site Header -->
   <header id="site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+    <?php
+      $tgo = get_option('tw_theme_general_options') ? get_option('tw_theme_general_options') : null;
+      $top_menu = isset($tgo['enable_top_menu']) ? $tgo['enable_top_menu'] : false;
+      if($top_menu):
+    ?>
+    <nav id="menu-top" role="navigation" class="navbar navbar-default navbar-fixed-top hidden-xs" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+      <div class="container">
+        <div class="navbar-collapse collapse navbar-responsive-collapse" >
+        <?php
+           if ( has_nav_menu( 'top' ) ){
+            	wp_nav_menu( array(
+            		'menu'       => 'top',
+            		'theme_location' => 'top',
+            		'depth'      => 2,
+            		'container'  => false,
+            		'menu_class' => 'nav navbar-nav navbar-right', //
+            		'fallback_cb' => 'wp_page_menu',
+            		'walker' => new tw_wp_bootstrap_navwalker())
+            	);
+          	}
+        ?>
+        </div><!-- /.navbar-collapse -->
+      </div>
+    </nav>
+    <?php endif; ?>
 
-    <nav id="menu-primary" role="navigation" class="navbar navbar-default navbar-fixed-top" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+
+    <nav id="menu-primary" role="navigation" class="<?php if($top_menu){ echo 'with-top';}?> navbar navbar-default navbar-fixed-top" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
       <div class="container">
         <div class="navbar-header">
 

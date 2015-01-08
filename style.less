@@ -71,7 +71,7 @@ For modern browsers */
 @color-body: #333;
 @color-line-light: #e1e1e1;
 @color-line-dark: #ccc;
-@color-caption-bg: #f1f1f1;
+@color-caption-bg: #f9f9f9;
 
 @color-footer-bg: #000;
 @color-footer-body: #fff;
@@ -99,8 +99,9 @@ For modern browsers */
 @base-line-height: @base-font + (@base-font/2);
 
 /***** Font Definitions *****/
-@font-heading: @font-lato;
-@font-body: @font-open-sans;
+@font-heading: @font-raleway;
+@font-body: @font-lato;
+@font-blockquote: @font-signika;
 
 /***** 3rd Party Imports *****/
 @import "includes/bootstrap/less/bootstrap.less";
@@ -139,6 +140,13 @@ body{
     }
   }
 
+}
+
+blockquote{
+  background: @color-caption-bg;
+  p{
+    font-family: @font-blockquote;
+  }
 }
 
 #menu-mobile{
@@ -291,8 +299,31 @@ body{
         font-size: 0.8em;
       }
     }
+
+
+    .section-video{
+      text-align:center;
+      background-size: cover !important;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
+
+      margin-left: auto;
+      margin-right: auto;
+      .clickable-video();
+    }
+
     .post-entry-meta();
   }
+  .article-quote{
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+  .article-audio{
+    h3{
+      margin-top: 5px;
+    }
+  }
+
   .entry-content{
 
   }

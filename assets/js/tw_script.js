@@ -38,3 +38,13 @@ function scrollToTop() {
 	offsetTop = offset.top;
 	jQuery('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
 }
+
+
+jQuery(document).bind('keyup', function(e) {
+  if(e.which == 39){
+    jQuery('.carousel').carousel('next');
+  }
+  else if(e.which == 37){
+    jQuery('.carousel').carousel('prev');
+  }
+});

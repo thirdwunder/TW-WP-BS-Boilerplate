@@ -3,23 +3,14 @@
  * The template used for displaying post content
  *
  */
+
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php echo tw_html_tag_schema('Article'); ?>>
   <header class="entry-header">
     <?php
       if(is_single()){
-        if(has_post_thumbnail()):
-          $image_caption =  get_post( get_post_thumbnail_id($post->ID) )->post_excerpt;
-      ?>
-          <figure class="entry-image">
-            <?php echo tw_the_post_thumbnail(array('4x3-small','16x9-medium','16x9-large'), array('itemprop'=>'image'));
-
-              if($image_caption): ?>
-                <figcaption class="caption"><?php echo $image_caption;?></figcaption>
-              <?php endif; ?>
-          </figure>
-        <?php
-          endif;
+        get_template_part( 'content/_slider-gallery');
+        //locate_template('content/_slider-gallery.php', true,true);
         the_title('<h1 class="entry-title" itemprop="headline">','</h1>');
       }else{
       ?>

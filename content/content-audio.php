@@ -3,6 +3,8 @@
  * The template used for displaying post content
  *
  */
+ $audio_src    = get_post_meta(get_the_id(), 'tw_audio_source',true) ? trim(get_post_meta(get_the_id(), 'tw_audio_source',true)) : '';
+ $audio_title  = get_post_meta(get_the_id(), 'tw_audio_title',true) ? trim(get_post_meta(get_the_id(), 'tw_audio_title',true)) : '';
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php echo tw_html_tag_schema('Article'); ?>>
   <header class="entry-header">
@@ -38,6 +40,14 @@
 
   <?php if(is_single()): ?>
     <section class="entry-content" itemprop="articleBody">
+
+      <?php if($audio_src!==''): ?>
+      <div id="article-audio" class="article-audio well">
+        <?php if($audio_title!==''): ?><h3><?php echo $audio_title; ?></h3><?php endif; ?>
+        <?php echo do_shortcode('[audio src="'.$audio_src.'"]'); ?>
+      </div>
+      <?php endif; ?>
+
       <?php the_content();
     		wp_link_pages( array(
   				'before'      => '<nav class="navigation post-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement"><span class="page-links-title">' . __( 'Pages:', 'tw' ) . '</span>',

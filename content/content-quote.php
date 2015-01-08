@@ -3,6 +3,18 @@
  * The template used for displaying post content
  *
  */
+  $quote_author       = get_post_meta(get_the_id(), 'tw_quote_author', true) ? trim(get_post_meta(get_the_id(), 'tw_quote_author', true)) : '';
+  $quote_source       = get_post_meta(get_the_id(), 'tw_quote_source', true) ?  trim(get_post_meta(get_the_id(), 'tw_quote_source', true)) : '';
+  $quote_source_url   = get_post_meta(get_the_id(), 'tw_quote_source_url', true) ? trim(get_post_meta(get_the_id(), 'tw_quote_source_url', true)): '';
+  $quote              = get_post_meta(get_the_id(), 'tw_quote', true) ? trim(get_post_meta(get_the_id(), 'tw_quote', true)) : '';
+
+  $attribution = '';
+  if($quote_author!==''){
+    $attribution .= $quote_author;
+  }
+  if($quote_source!==''){
+    $attribution .= ' - '.$quote_source;
+  }
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php echo tw_html_tag_schema('Article'); ?>>
   <header class="entry-header">
@@ -38,6 +50,25 @@
 
   <?php if(is_single()): ?>
     <section class="entry-content" itemprop="articleBody">
+
+      <?php if($quote!==''): ?>
+      <div id="article-quote" class="article-quote">
+        <blockquote <?php if($quote_source_url!==''){ echo 'cite="'.$quote_source_url.'"';} ;?>>
+          <p><?php echo $quote; ?></p>
+
+          <?php if($quote_source_url!==''):?>
+            <footer><a href="<?php echo $quote_source_url;?>" target="_blank">
+              <?php echo $attribution; ?>
+            </a></footer>
+          <?php else: ?>
+            <footer><?php echo $attribution; ?></footer>
+          <?php endif; ?>
+
+        </blockquote>
+      </div>
+      <?php endif; ?>
+
+
       <?php the_content();
     		wp_link_pages( array(
   				'before'      => '<nav class="navigation post-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement"><span class="page-links-title">' . __( 'Pages:', 'tw' ) . '</span>',
