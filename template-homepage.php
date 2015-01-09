@@ -96,6 +96,11 @@ get_header(); ?>
     </div>
   </div>
 
+  <?php if ( is_active_sidebar( 'homepage' ) ) : ?>
+  <div id="homepage-widgets" class="row">
+    <?php dynamic_sidebar( 'homepage' ); ?>
+  </div>
+  <?php endif; ?>
 
 </div><!-- #site-content -->
 <?php get_footer(); ?>

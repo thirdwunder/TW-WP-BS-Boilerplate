@@ -1,9 +1,4 @@
-
-
-
-
-
-  <div class="scroll-top-wrapper ">
+  <div id="scroll-to-top-wrapper" class="scroll-top-wrapper" data-offset-bottom="100">
   	<div class="btn btn-default scroll-top-inner">
   		<i class="fa fa-fw fa-chevron-up"></i> <span class="title"><?php _e('Back to Top','tw'); ?></span>
   	</div>
@@ -15,7 +10,7 @@
         $post_type = get_post_type();
         $tgo = get_option('tw_theme_general_options') ? get_option('tw_theme_general_options') : null;
         $footer_wigets = isset($tgo['enable_footer_widgets']) ? $tgo['enable_footer_widgets'] : 0;
-        if($footer_wigets>0 && $post_type!=='landing-page'):
+        if($footer_wigets>0 && $post_type!=='landing-page' && !is_front_page()):
           $cols = 'col-xs-12 col-sm-12 col-md-12';
           switch ($footer_wigets){
             case 2:

@@ -41,10 +41,19 @@ function scrollToTop() {
 
 
 jQuery(document).bind('keyup', function(e) {
-  if(e.which == 39){
+  if(e.which === 39){
     jQuery('.carousel').carousel('next');
   }
-  else if(e.which == 37){
+  else if(e.which === 37){
     jQuery('.carousel').carousel('prev');
+  }
+});
+
+jQuery('#scroll-to-top-wrapper').affix({
+  offset: {
+    top: 100,
+    bottom: function () {
+      return (this.bottom = jQuery('#site-footer').outerHeight(true));
+    }
   }
 });

@@ -3,6 +3,7 @@
  * The template used for displaying post content
  *
  */
+ $image_sizes = array('4x3-small','16x9-medium','16x9-large');
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php echo tw_html_tag_schema('Article'); ?>>
   <header class="entry-header">
@@ -12,7 +13,7 @@
           $image_caption =  get_post( get_post_thumbnail_id($post->ID) )->post_excerpt;
       ?>
           <figure class="entry-image">
-            <?php echo tw_the_post_thumbnail(array('4x3-small','16x9-medium','16x9-large'), array('itemprop'=>'image'));
+            <?php echo tw_the_post_thumbnail($image_sizes, array('itemprop'=>'image'));
 
               if($image_caption): ?>
                 <figcaption class="caption"><?php echo $image_caption;?></figcaption>
@@ -25,7 +26,7 @@
       ?>
         <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" itemprop="url">
           <div class="entry-image">
-            <?php the_post_thumbnail($img_size, array('itemprop'=>'image')); ?>
+            <?php echo tw_the_post_thumbnail($image_sizes, array('itemprop'=>'image')); ?>
           </div>
           <h2 class="entry-title" itemprop="headline"><?php the_title(); ?></h2>
         </a>

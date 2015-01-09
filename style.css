@@ -9376,6 +9376,8 @@ blockquote footer {
   padding-bottom: 5px;
 }
 #menu-mobile .mobile-contact-social {
+  position: absolute;
+  bottom: 0;
   border-top: 1px solid #e1e1e1;
 }
 #menu-mobile .mobile-contact-social h4 {
@@ -9540,7 +9542,8 @@ blockquote footer {
 .page-template-template-homepage .jumbotron.light h2,
 .page-template-template-homepage .jumbotron.light h3,
 .page-template-template-homepage .jumbotron.light h4,
-.page-template-template-homepage .jumbotron.light p {
+.page-template-template-homepage .jumbotron.light p,
+.page-template-template-homepage .jumbotron.light blockquote {
   color: #ffffff;
   text-shadow: 1px 1px 1px #333333;
 }
@@ -9548,11 +9551,18 @@ blockquote footer {
 .page-template-template-homepage .jumbotron.dark h2,
 .page-template-template-homepage .jumbotron.dark h3,
 .page-template-template-homepage .jumbotron.dark h4,
-.page-template-template-homepage .jumbotron.dark p {
+.page-template-template-homepage .jumbotron.dark p,
+.page-template-template-homepage .jumbotron.dark blockquote {
   text-shadow: 1px 1px 1px #e1e1e1;
 }
 .page-template-template-homepage .jumbotron p {
   font-weight: 300;
+}
+.page-template-template-homepage .jumbotron blockquote {
+  background-color: transparent;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 50%;
 }
 .page-template-template-homepage .jumbotron a {
   text-shadow: none;
@@ -9671,6 +9681,20 @@ fieldset[disabled] .post-edit-link.active {
 /********************
 *** Image Slider  ***
 ********************/
+.carousel .carousel-control.left .fa,
+.carousel .carousel-control.right .fa {
+  font-size: 2.5em;
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: inline-block;
+}
+.carousel .carousel-control.left .fa {
+  right: 50%;
+}
+.carousel .carousel-control.right .fa {
+  left: 50%;
+}
 .gallery-carousel .carousel-indicators {
   bottom: 0;
   margin-left: 0px;
@@ -9699,20 +9723,6 @@ fieldset[disabled] .post-edit-link.active {
 }
 .gallery-carousel .carousel-inner .item .carousel-caption p {
   font-size: 0.8em;
-}
-.gallery-carousel .carousel-control.left .fa,
-.gallery-carousel .carousel-control.right .fa {
-  font-size: 2.5em;
-  position: absolute;
-  top: 50%;
-  z-index: 5;
-  display: inline-block;
-}
-.gallery-carousel .carousel-control.left .fa {
-  right: 50%;
-}
-.gallery-carousel .carousel-control.right .fa {
-  left: 50%;
 }
 /*
   Bootstrap Carousel Fade Transition (for Bootstrap 3.3.x)
@@ -10514,22 +10524,42 @@ textarea.widget_categories .postform {
   z-index: 1001;
 }
 .scroll-top-wrapper {
+  -webkit-backface-visibility: hidden;
   position: fixed;
   opacity: 0;
   visibility: hidden;
   overflow: hidden;
   z-index: 99999999;
   right: 30px;
-  bottom: 30px;
+  bottom: 0px;
   -webkit-transition: all 0.5s ease-in-out !important;
   -moz-transition: all 0.5s ease-in-out !important;
   -ms-transition: all 0.5s ease-in-out !important;
   -o-transition: all 0.5s ease-in-out !important;
   transition: all 0.5s ease-in-out !important;
 }
+.scroll-top-wrapper .btn-default {
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  -o-border-radius: 0 !important;
+  border: none;
+}
+.scroll-top-wrapper .btn-default:hover {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
 .scroll-top-wrapper.show {
   visibility: visible;
   opacity: 1.0;
+}
+.scroll-top-wrapper.affix-bottom {
+  position: relative;
+  text-align: right;
+  margin-bottom: -25px;
+  top: 0 !important;
 }
 @media only screen and (max-width: 768px) {
   body.logged-in {
@@ -10541,12 +10571,37 @@ textarea.widget_categories .postform {
   #menu-primary.with-top {
     margin-top: 0px;
   }
+  .page-template-template-homepage .jumbotron blockquote {
+    width: 100%;
+  }
   #site-footer {
     padding: 25px inherit;
   }
   #site-footer .footer-container #credit,
   #site-footer .footer-container #copyright {
     text-align: left;
+  }
+  .carousel .carousel-inner .item .carousel-caption {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-color: black;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    padding: 10px 15px;
+    min-height: 45px;
+  }
+  .carousel .carousel-inner .item .carousel-caption h2,
+  .carousel .carousel-inner .item .carousel-caption h3 {
+    color: white;
+    font-size: 1.1em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .carousel .carousel-inner .item .carousel-caption p {
+    font-size: 0.8em;
   }
 }
 /* Medium devices (desktops, 992px and up) */
@@ -10678,6 +10733,73 @@ textarea.widget_categories .postform {
   }
   .landing-page .entry-content .content-with-form lp_form_left {
     margin-right: 0 !important;
+  }
+}
+/* Medium devices (desktops, 992px and up) */
+/* Large devices (large desktops, 1200px and up) */
+.widget_twslideswidget .carousel-inner {
+  height: 100%;
+}
+.widget_twslideswidget .carousel-inner .item .carousel-caption {
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  left: 15%;
+  bottom: 0;
+  padding: 20px;
+  clear: both;
+  text-align: left;
+  width: 40%;
+}
+.widget_twslideswidget .carousel-inner .item .carousel-caption a,
+.widget_twslideswidget .carousel-inner .item .carousel-caption a:visited {
+  color: white;
+}
+.widget_twslideswidget .carousel-inner .item .carousel-caption h2,
+.widget_twslideswidget .carousel-inner .item .carousel-caption h3 {
+  color: white;
+  margin-top: 0px;
+  font-size: 1.6em;
+}
+.widget_twslideswidget .carousel-inner .item .carousel-caption p {
+  font-size: 0.8em;
+}
+.widget_twslideswidget .carousel-inner .item img {
+  width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+}
+.widget-area .widget_twslideswidget .carousel-caption {
+  display: none;
+  visibility: hidden;
+}
+.widget-area .widget_twslideswidget .carousel-control.left .fa,
+.widget-area .widget_twslideswidget .carousel-control.right .fa {
+  top: 45%;
+  font-size: 1.2em;
+}
+@media only screen and (max-width: 768px) {
+  .widget_twslideswidget .carousel-inner .item .carousel-caption {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-color: black;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    padding: 10px 15px;
+    min-height: 45px;
+  }
+  .widget_twslideswidget .carousel-inner .item .carousel-caption h2,
+  .widget_twslideswidget .carousel-inner .item .carousel-caption h3 {
+    color: white;
+    font-size: 1.1em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .widget_twslideswidget .carousel-inner .item .carousel-caption p {
+    font-size: 0.8em;
   }
 }
 /* Medium devices (desktops, 992px and up) */

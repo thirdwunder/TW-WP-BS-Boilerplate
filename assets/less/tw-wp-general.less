@@ -103,6 +103,8 @@ blockquote{
 }
 #menu-mobile{
  .mobile-contact-social{
+   position: absolute;
+   bottom:0;
    border-top: 1px solid @color-line-light;
    h4{
      padding-left: 15px;
@@ -162,19 +164,24 @@ blockquote{
     }
 
     &.light{
-      h1, h2, h3, h4, p{
+      h1, h2, h3, h4, p, blockquote{
         color: @color-inverse-body;
         text-shadow: 1px 1px 1px @color-body;
       }
     }
     &.dark{
-      h1,h2,h3,h4,p{
+      h1,h2,h3,h4,p, blockquote{
         text-shadow: 1px 1px 1px @color-line-light;
       }
     }
     p{
-//       font-size: 1.5em;
       font-weight: 300;
+    }
+    blockquote{
+      background-color: transparent;
+      padding-left: 10px;
+      padding-right: 10px;
+      width: 50%;
     }
     a{
       text-shadow: none;
@@ -256,6 +263,30 @@ blockquote{
 /********************
 *** Image Slider  ***
 ********************/
+.carousel{
+  .carousel-control{
+
+    &.left, &.right{
+      .fa{
+        font-size: 2.5em;
+        position: absolute;
+        top: 50%;
+        z-index: 5;
+        display: inline-block;
+      }
+    }
+    &.left{
+      .fa{
+        right: 50%;
+      }
+    }
+    &.right{
+      .fa{
+        left: 50%;
+      }
+    }
+  }
+}
 .gallery-carousel{
   .carousel-indicators{
     bottom:0;
@@ -291,28 +322,7 @@ blockquote{
       }
     }
   }
-  .carousel-control{
 
-    &.left, &.right{
-      .fa{
-        font-size: 2.5em;
-        position: absolute;
-        top: 50%;
-        z-index: 5;
-        display: inline-block;
-      }
-    }
-    &.left{
-      .fa{
-        right: 50%;
-      }
-    }
-    &.right{
-      .fa{
-        left: 50%;
-      }
-    }
-  }
 }
 
 /*
@@ -878,19 +888,37 @@ img.alignright{
 
 
 .scroll-top-wrapper {
+  -webkit-backface-visibility: hidden;
   position: fixed;
 	opacity: 0;
 	visibility: hidden;
 	overflow: hidden;
 	z-index: 99999999;
 	right: 30px;
-	bottom: 30px;
+	bottom: 0px;
+
+  .btn-default{
+    background-color: @color-inverse-bg;
+    color: @color-inverse-body;
+    .border-radius(0);
+    border:none;
+    &:hover{
+      background-color: lighten(@color-inverse-bg, 10%);
+      color: @color-inverse-body;
+    }
+  }
 
   .transition(all, 0.5s, ease-in-out);
-
   &.show {
     visibility:visible;
   	opacity: 1.0;
+  }
+
+  &.affix-bottom{
+    position: relative;
+    text-align: right;
+    margin-bottom: -25px;
+    top: 0 !important;
   }
 }
 
@@ -916,6 +944,15 @@ img.alignright{
     }
   }
 
+  .page-template-template-homepage{
+    .jumbotron{
+
+      blockquote{
+        width: 100%;
+      }
+    }
+  }
+
   #site-footer{
     padding: 25px inherit;
     .footer-container{
@@ -926,23 +963,34 @@ img.alignright{
     }
   }
 
-  .gallery-carousel{
-    .carousel-indicators{
-
-    }
+  .carousel{
     .carousel-inner{
       .item{
         .carousel-caption{
-
+          position: relative;
+          width: 100%;
+          height: auto;
+          background-color: black;
+          //background-color: rgba(0,0,0, 0.75);
+          left: 0;
+          right: 0;
+          bottom: 0;
+          text-align: center;
+          padding: 10px 15px;
+          min-height: 45px;
+          h2,h3{
+            color: white;
+            font-size: 1.1em;
+            margin-top: 5px;
+            margin-bottom: 5px;
+          }
+          p{
+            font-size: 0.8em;
+          }
         }
       }
     }
-    .carousel-control{
-
-    }
   }
-
-
 
 }
 
