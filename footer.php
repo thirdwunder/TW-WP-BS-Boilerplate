@@ -81,7 +81,7 @@
   if(is_array($social_options) && isset($social_options['fb_app_id']) ){
     $fb_app_id = trim($social_options['fb_app_id']);
   }
-  if($fb_comments && !is_null($fb_app_id)):
+  if(!is_null($fb_app_id)):
 ?>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

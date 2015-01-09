@@ -85,12 +85,7 @@ $video_embed = tw_videoURL_to_embedCode($video_url, $video_autoplay);
     </section>
   <?php endif; ?>
 
-  <?php if(is_single()): ?>
-  <footer class="entry-footer">
-    <div class="entry-tags"><?php the_tags( 'Tags: ', ', ', '' ); ?></div>
-    <?php edit_post_link( __( 'Edit', 'tw' ), '<span class="edit-link">', '</span>' ); ?>
-  </footer>
-  <?php endif; ?>
+  <?php get_template_part( 'content/_post-footer' ); ?>
 
   <?php
     if( is_single() && get_the_author_meta( 'description' ) ){
