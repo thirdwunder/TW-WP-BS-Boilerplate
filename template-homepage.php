@@ -8,6 +8,9 @@
  * @subpackage Third Wunder
  * @since Third Wunder 1.0
  */
+$show_content = get_post_meta(get_the_id(), 'tw_homepage_show_content', true);
+$show_content = ($show_content=='on') ? true : false;
+
 $j_options = get_post_meta(get_the_id(), 'tw_homepage_jumbotron', true);
 $j_enabled= false;
 $j_bg_style = '';
@@ -72,8 +75,8 @@ get_header(); ?>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-6">
         <?php if($j_video_poster_img!==''): ?>
-          <div class="section-video" style="<?php echo $j_video_poster_style; ?>">
-            <div class="video embed-responsive embed-responsive-16by9" >
+          <div id="section-video-<?php echo get_the_id();?>" class="section-video" style="<?php echo $j_video_poster_style; ?>">
+            <div id="video-<?php echo get_the_id();?>" class="video embed-responsive embed-responsive-16by9" >
               <!-- <?php echo html_entity_decode($j_video_embed); ?> -->
             </div>
           </div>
@@ -88,6 +91,7 @@ get_header(); ?>
   </div>
   <?php endif; ?>
 
+  <?php if($show_content):?>
   <div id="primary" class="container content-area">
     <div class="row page-content" itemprop="text">
       <div class="col-sm-12 col-md-12">
@@ -95,6 +99,7 @@ get_header(); ?>
       </div>
     </div>
   </div>
+  <?php endif; ?>
 
   <?php if ( is_active_sidebar( 'homepage' ) ) : ?>
   <div id="homepage-widgets" class="row">

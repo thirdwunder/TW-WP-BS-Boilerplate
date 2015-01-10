@@ -1,3 +1,10 @@
+<?php
+$fb_comments = false;
+$blog_options = get_option('tw_theme_blog_options') ? get_option('tw_theme_blog_options') : null;
+if(is_array($blog_options) && isset($blog_options['enable_fb_comments'])){
+  $fb_comments = !!$blog_options['enable_fb_comments'];
+}
+?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('row'); ?> <?php echo tw_html_tag_schema('Article'); ?>>
   <div class="entry-image col-sm-3 col-md-3">
     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" itemprop="url">
@@ -24,10 +31,14 @@
     <section class="entry-content" itemprop="description">
       <?php the_excerpt(); ?>
     </section>
+
+    <?php if(!$fb_comments): ?>
     <div class="entry-meta post-meta">
       <span class="entry-comments">
         <a href="<?php the_permalink(); ?>#comments" title="<?php the_title(); ?>"><i class="fa fa-comments"></i> &nbsp;<?php comments_number( '<span itemprop="commentCount">0</span> Comments', '<span itemprop="commentCount">1</span> Comment', '<span itemprop="commentCount">%</span> Comments' ); ?></a>
       </span>
     </div>
+    <?php endif; ?>
+
   </div>
 </article>

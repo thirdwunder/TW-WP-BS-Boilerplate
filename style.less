@@ -61,8 +61,16 @@ For modern browsers */
 
 /***** Color Definitions *****/
 @color-primary: #333;
+@color-primary-dark: #222;
+@color-primary-light: #444;
+
 @color-secondary: #666;
+@color-secondary-dark: #555;
+@color-secondary-light: #777;
+
 @color-tertiary: #999;
+@color-tertiary-dark: #888;
+@color-tertiary-light: #ccc;
 
 @color-link: #337ab7;
 @color-link-hover: darken(@color-link, 10%);
@@ -78,6 +86,23 @@ For modern browsers */
 @color-inverse-line: #333;
 @color-inverse-link: @color-link;
 @color-inverse-link-hover: @color-link-hover;
+
+@color-menu-bg-base: #f8f8f8;
+@color-menu-border: #e7e7e7;
+
+@color-menu-body: #555;
+@color-menu-bg: #f8f8f8;
+@color-menu-body-hover: #333;
+@color-menu-bg-hover: #e7e7e7;
+@color-menu-body-selected: #555;
+@color-menu-bg-selected: #e7e7e7;
+@color-menu-bg-inverse-hover: @color-primary-light;
+@color-menu-bg-inverse-selected: @color-primary;
+
+@color-breadcrumb-bg: #f5f5f5;
+@color-breadcrumb-body: #555;
+@color-breadcrumb-link: @color-link;
+@color-breadcrumb-link-hover: @color-link-hover;
 
 @color-btn-default: white;
 @color-btn-default-hover: darken(@color-btn-default, 10%);
@@ -101,6 +126,7 @@ For modern browsers */
 @font-heading: @font-raleway;
 @font-body: @font-lato;
 @font-blockquote: @font-signika;
+@font-menu: @font-lato;
 
 /***** 3rd Party Imports *****/
 @import "includes/bootstrap/less/bootstrap.less";
@@ -127,6 +153,9 @@ h1, h2, h3, h4, h5{
 
 html, body{
   font-weight: 300;
+  a{
+    font-weight: 300;
+  }
 }
 
 

@@ -33,8 +33,8 @@ get_header(); ?>
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php echo tw_html_tag_schema('Article'); ?>>
           <header class="entry-header">
              <?php if(!is_null($video_url) && $video_url!=='' ): ?>
-             <div class="section-video" style="<?php echo $video_bg; ?>">
-               <div class="video embed-responsive embed-responsive-16by9" >
+             <div id="section-video-<?php the_ID(); ?>" class="section-video" style="<?php echo $video_bg; ?>">
+               <div id="video-<?php the_ID(); ?>" class="video embed-responsive embed-responsive-16by9" >
                  <!-- <?php echo html_entity_decode(tw_videoURL_to_embedCode($video_url, true)); ?> -->
                </div>
              </div>
