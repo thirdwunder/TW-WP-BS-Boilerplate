@@ -11,8 +11,8 @@
   $tweet = get_the_title().' '.get_permalink();
   $feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 ?>
-<h3><?php echo __('Share with your friends','tw'); ?></h3>
-<div class="social-sharing">
+<h3 class="hidden-print"><?php echo __('Share with your friends','tw'); ?></h3>
+<div class="hidden-print social-sharing">
 
   <ul>
     <a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink();?>" title="Share on Facebook" target="_blank" class="social-facebook">

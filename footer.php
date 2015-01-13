@@ -1,10 +1,10 @@
-  <div id="scroll-to-top-wrapper" class="scroll-top-wrapper" data-spy="affix" data-offset-bottom="100">
+  <div id="scroll-to-top-wrapper" class="hidden-print scroll-top-wrapper" data-spy="affix" data-offset-bottom="100">
   	<div class="btn btn-default scroll-top-inner">
   		<i class="fa fa-fw fa-chevron-up"></i> <span class="title"><?php _e('Back to Top','tw'); ?></span>
   	</div>
   </div>
 
-  <footer id="site-footer" class="site-footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+  <footer id="site-footer" class="hidden-print site-footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
     <div class="footer-container container">
       <?php
         $post_type = get_post_type();

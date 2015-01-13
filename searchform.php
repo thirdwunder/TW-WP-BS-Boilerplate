@@ -1,4 +1,4 @@
-<form class="form-inline" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
+<form class="hidden-print form-inline" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
     <div class="form-group">
         <label class="screen-reader-text sr-only" for="s"><?php _e('Search for','mh');?>:</label>
         <div class="input-group">

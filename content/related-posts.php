@@ -27,7 +27,7 @@ if($rpo):
 
     $my_query = new wp_query( $args );
     if($my_query->have_posts()): ?>
-      <section id="related-posts">
+      <section id="related-posts" class="hidden-print">
         <header><h3><?php _e('More to read','mh'); ?></h3></header>
         <div class="related-post-inner row">
         <?php

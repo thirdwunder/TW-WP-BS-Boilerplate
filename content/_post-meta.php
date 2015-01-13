@@ -1,5 +1,5 @@
 <?php $fb_comments = tw_is_fb_coments_enabled(); ?>
-<ul class="entry-meta post-meta">
+<ul class="hidden-print entry-meta post-meta">
   <li class="entry-date">
     <time class="updated" itemprop="datePublished" datetime="<?php echo get_the_time('Y-m-j'); ?>T<?php echo get_the_time('H:i:s'); ?>" pubdate><?php echo get_the_time('F j, Y'); ?></time>
   </li>

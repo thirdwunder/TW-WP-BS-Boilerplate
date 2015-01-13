@@ -2,7 +2,7 @@
   $fb_comments = tw_is_fb_coments_enabled();
   $cols = $fb_comments ? 'col-xs-4 col-sm-4 col-md-12' : 'col-xs-6 col-sm-3 col-md-12';
 ?>
-<aside id="post-meta-panel" class="entry-meta-panel col-xs-12 col-sm-12 col-md-3 ">
+<aside id="post-meta-panel" class="hidden-print entry-meta-panel col-xs-12 col-sm-12 col-md-3 ">
 
 
     <div class="profile-image hidden-xs hidden-sm"><?php echo get_avatar( get_the_author_meta( 'user_email' ), '100' ); ?></div>

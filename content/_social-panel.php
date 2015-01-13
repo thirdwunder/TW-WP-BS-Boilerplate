@@ -12,7 +12,7 @@
   $tweet = get_the_title().' '.get_permalink();
   $feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 ?>
-<aside class="social-panel">
+<aside class="hidden-print social-panel">
   <ul>
     <?php if(function_exists('gapp_get_post_pageviews')):?>
     <li class="views">

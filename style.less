@@ -57,76 +57,7 @@ For modern browsers */
   font-weight: normal;
   font-style: normal;
 }
-@font-fontawesome: 'FontAwesome';
 
-/***** Color Definitions *****/
-@color-primary: #333;
-@color-primary-dark: #222;
-@color-primary-light: #444;
-
-@color-secondary: #666;
-@color-secondary-dark: #555;
-@color-secondary-light: #777;
-
-@color-tertiary: #999;
-@color-tertiary-dark: #888;
-@color-tertiary-light: #ccc;
-
-@color-link: #337ab7;
-@color-link-hover: darken(@color-link, 10%);
-
-@color-heading: #000;
-@color-body: #333;
-@color-line-light: #e1e1e1;
-@color-line-dark: #ccc;
-@color-caption-bg: #f9f9f9;
-
-@color-inverse-bg: #000;
-@color-inverse-body: #fff;
-@color-inverse-line: #333;
-@color-inverse-link: @color-link;
-@color-inverse-link-hover: @color-link-hover;
-
-@color-menu-bg-base: #f8f8f8;
-@color-menu-border: #e7e7e7;
-
-@color-menu-body: #555;
-@color-menu-bg: #f8f8f8;
-@color-menu-body-hover: #333;
-@color-menu-bg-hover: #e7e7e7;
-@color-menu-body-selected: #555;
-@color-menu-bg-selected: #e7e7e7;
-@color-menu-bg-inverse-hover: @color-primary-light;
-@color-menu-bg-inverse-selected: @color-primary;
-
-@color-breadcrumb-bg: #f5f5f5;
-@color-breadcrumb-body: #555;
-@color-breadcrumb-link: @color-link;
-@color-breadcrumb-link-hover: @color-link-hover;
-
-@color-btn-default: white;
-@color-btn-default-hover: darken(@color-btn-default, 10%);
-
-@color-btn-primary: blue;
-@color-btn-primary-hover: darken(@color-btn-primary,10%);
-
-@color-btn-success: green;
-@color-btn-success-hover: darken(@color-btn-success,10%);
-
-@color-btn-warning: orange;
-@color-btn-warning-hover: darken(@color-btn-warning, 10%);
-
-@color-btn-danger:  red;
-@color-btn-danger-hover:  darken(@color-btn-danger, 10%);
-
-@base-font: 16px;
-@base-line-height: @base-font + (@base-font/2);
-
-/***** Font Definitions *****/
-@font-heading: @font-raleway;
-@font-body: @font-lato;
-@font-blockquote: @font-signika;
-@font-menu: @font-lato;
 
 /***** 3rd Party Imports *****/
 @import "includes/bootstrap/less/bootstrap.less";
@@ -145,10 +76,93 @@ For modern browsers */
 @import "includes/tw-wp-core/less/tw-landing-page.less";
 @import "includes/tw-wp-core/less/tw-plugin.less";
 
+/***** Color Definitions *****/
+@color-primary: #333;
+@color-primary-dark: #222;
+@color-primary-light: #444;
+
+@color-secondary: #666;
+@color-secondary-dark: #555;
+@color-secondary-light: #777;
+
+@color-tertiary: #999;
+@color-tertiary-dark: #888;
+@color-tertiary-light: #ccc;
+
+
+@color-heading: #000;
+@color-line-light: #e1e1e1;
+@color-line-dark: #ccc;
+@color-caption-bg: #f9f9f9;
+
+@color-inverse-bg: #000;
+@color-inverse-body: #fff;
+@color-inverse-line: #333;
+@color-inverse-link: #337ab7;
+@color-inverse-link-hover: darken(@color-inverse-link, 15%);
+
+@color-menu-bg-base: #f8f8f8;
+@color-menu-border: #e7e7e7;
+
+@color-menu-body: #555;
+@color-menu-bg: #f8f8f8;
+@color-menu-body-hover: #333;
+@color-menu-bg-hover: #e7e7e7;
+@color-menu-body-selected: #555;
+@color-menu-bg-selected: #e7e7e7;
+@color-menu-bg-inverse-hover: @color-primary-light;
+@color-menu-bg-inverse-selected: @color-primary;
+
+@color-breadcrumb-bg: #f5f5f5;
+@color-breadcrumb-body: #555;
+
+
+/***** Font Definitions *****/
+@font-fontawesome: 'FontAwesome';
+@font-heading: @font-raleway;
+@font-body: @font-lato;
+@font-blockquote: @font-signika;
+@font-menu: @font-lato;
+
+
+/**** Bootstrap Scaffolding ***/
+@body-bg:    #fff;
+@text-color: #333;
+
+@font-size-base:          16px;
+@font-size-large:         ceil((@font-size-base * 1.25)); // ~20px
+@font-size-small:         ceil((@font-size-base * 0.85)); // ~14px
+
+@font-size-h1:            floor((@font-size-base * 2.6)); // ~36px
+@font-size-h2:            floor((@font-size-base * 2.15)); // ~30px
+@font-size-h3:            ceil((@font-size-base * 1.7)); // ~24px
+@font-size-h4:            ceil((@font-size-base * 1.25)); // ~18px
+@font-size-h5:            @font-size-base;
+@font-size-h6:            ceil((@font-size-base * 0.85)); // ~12px
+
+@line-height-base:        1.428571429; // 20/14
+@line-height-computed:    floor((@font-size-base * @line-height-base)); // ~20px
+
+@headings-font-family:    @font-heading;
+@headings-font-weight:    200;
+@headings-line-height:    1.1;
+@headings-color:          @color-heading;
+
+@border-radius-base:             4px;
+@border-radius-large:            6px;
+@border-radius-small:            3px;
+
+@brand-primary: darken(#428bca, 6.5%); // #337ab7
+@brand-success: #5cb85c;
+@brand-info:    #5bc0de;
+@brand-warning: #f0ad4e;
+@brand-danger:  #d9534f;
+
+@link-color:       @brand-primary;
+@link-hover-color: darken(@link-color, 15%);
 
 h1, h2, h3, h4, h5{
-  font-family: @font-heading;
-  color:@color-heading;
+
 }
 
 html, body{
