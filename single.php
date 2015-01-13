@@ -7,12 +7,13 @@
  * @since TW 1.0
  */
 $primary_sidebar = tw_is_sidebar_enabled();
+$blog_sidebar = tw_is_blog_sidebar_enabled();
 get_header(); ?>
 <!-- Site Container -->
 <div id="site-content" class="container">
   <div id="site-container" class="row">
 
-    <?php if($primary_sidebar):?>
+    <?php if($primary_sidebar && $blog_sidebar):?>
     <div id="primary" class="content-area col-xs-12 col-sm-8 col-md-9">
     <?php else: ?>
     <div id="primary" class="content-area col-xs-12 col-sm-12 col-md-12">
@@ -40,7 +41,7 @@ get_header(); ?>
       </main><!-- .site-main -->
 
     </div><!-- .content-area -->
-    <?php if($primary_sidebar){get_sidebar( 'sidebar' );} ?>
+    <?php if($primary_sidebar && $blog_sidebar){get_sidebar( 'sidebar' );} ?>
 
   </div><!-- #site-container -->
 </div><!-- #site-content -->
