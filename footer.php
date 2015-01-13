@@ -1,4 +1,4 @@
-  <div id="scroll-to-top-wrapper" class="scroll-top-wrapper" data-offset-bottom="100">
+  <div id="scroll-to-top-wrapper" class="scroll-top-wrapper" data-spy="affix" data-offset-bottom="100">
   	<div class="btn btn-default scroll-top-inner">
   		<i class="fa fa-fw fa-chevron-up"></i> <span class="title"><?php _e('Back to Top','tw'); ?></span>
   	</div>
@@ -8,7 +8,7 @@
     <div class="footer-container container">
       <?php
         $post_type = get_post_type();
-        $tgo = get_option('tw_theme_general_options') ? get_option('tw_theme_general_options') : null;
+        $tgo = tw_get_general_options();
         $footer_wigets = isset($tgo['enable_footer_widgets']) ? $tgo['enable_footer_widgets'] : 0;
         if($footer_wigets>0 && $post_type!=='landing-page' && !is_front_page()):
           $cols = 'col-xs-12 col-sm-12 col-md-12';
@@ -73,10 +73,9 @@
 <?php
   $fb_comments = false;
   $fb_app_id = null;
-  $blog_options = get_option('tw_theme_blog_options') ? get_option('tw_theme_blog_options') : null;
-  $social_options = get_option('tw_theme_social_options') ? get_option('tw_theme_social_options') : null;
-  if(is_array($blog_options) && isset($blog_options['enable_fb_comments'])){
-    $fb_comments = !!$blog_options['enable_fb_comments'];
+  $social_options = tw_get_social_options();
+  if(is_array($social_options) && isset($social_options['enable_fb_comments'])){
+    $fb_comments = !!$social_options['enable_fb_comments'];
   }
   if(is_array($social_options) && isset($social_options['fb_app_id']) ){
     $fb_app_id = trim($social_options['fb_app_id']);

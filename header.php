@@ -68,9 +68,7 @@
 
   <!-- Site Header -->
   <header id="site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
-    <?php
-      $tgo = get_option('tw_theme_general_options') ? get_option('tw_theme_general_options') : null;
-      $top_menu = isset($tgo['enable_top_menu']) ? $tgo['enable_top_menu'] : false;
+    <?php $top_menu = tw_is_top_menu_enabled();
       if($top_menu):
     ?>
     <nav id="menu-top" role="navigation" class="navbar navbar-default navbar-fixed-top hidden-xs" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">

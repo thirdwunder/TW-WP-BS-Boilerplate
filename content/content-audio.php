@@ -34,31 +34,36 @@
       <?php
       }
     ?>
-    <?php get_template_part('content/_post-meta'); ?>
+    <?php //get_template_part('content/_post-meta'); ?>
 
   </header>
 
   <?php if(is_single()): ?>
-    <section class="entry-content" itemprop="articleBody">
+    <section class="entry-content row" >
+      <?php get_template_part('content/_post-meta-panel'); ?>
 
-      <?php if($audio_src!==''): ?>
-      <div id="article-audio" class="article-audio well">
-        <?php if($audio_title!==''): ?><h3><?php echo $audio_title; ?></h3><?php endif; ?>
-        <?php echo do_shortcode('[audio src="'.$audio_src.'"]'); ?>
+      <div class="col-xs-12 col-sm-12 col-md-9" itemprop="articleBody">
+
+          <?php if($audio_src!==''): ?>
+          <div id="article-audio" class="article-audio well">
+            <?php if($audio_title!==''): ?><h3><?php echo $audio_title; ?></h3><?php endif; ?>
+            <?php echo do_shortcode('[audio src="'.$audio_src.'"]'); ?>
+          </div>
+          <?php endif; ?>
+
+          <?php the_content();
+        		wp_link_pages( array(
+      				'before'      => '<nav class="navigation post-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement"><span class="page-links-title">' . __( 'Pages:', 'tw' ) . '</span>',
+      				'after'       => '</nav>',
+      				'link_before' => '<span>',
+      				'link_after'  => '</span>',
+      				'pagelink'    => '<span class="sr-only">' . __( 'Page', 'tw' ) . ' </span>%',
+      				'separator'   => '<span class="sr-only">, </span>',
+      				'echo'             => 0
+      			) );
+          ?>
+        <?php get_template_part( 'content/_post-footer' ); ?>
       </div>
-      <?php endif; ?>
-
-      <?php the_content();
-    		wp_link_pages( array(
-  				'before'      => '<nav class="navigation post-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement"><span class="page-links-title">' . __( 'Pages:', 'tw' ) . '</span>',
-  				'after'       => '</nav>',
-  				'link_before' => '<span>',
-  				'link_after'  => '</span>',
-  				'pagelink'    => '<span class="sr-only">' . __( 'Page', 'tw' ) . ' </span>%',
-  				'separator'   => '<span class="sr-only">, </span>',
-  				'echo'             => 0
-  			) );
-      ?>
     </section>
   <?php else: ?>
     <section class="entry-content" itemprop="description">
@@ -66,11 +71,13 @@
     </section>
   <?php endif; ?>
 
-  <?php get_template_part( 'content/_post-footer' ); ?>
-
   <?php
-    if( is_single() && get_the_author_meta( 'description' ) ){
-      get_template_part( 'author-bio' );
+    if( is_single()){
+      if(get_the_author_meta( 'description' ) ){
+        get_template_part( 'author-bio' );
+      }
+
+      get_template_part('content/_social-sharing');
     }
   ?>
 </article>

@@ -4,8 +4,7 @@ MH Related Posts
 Description: Requires a theme which supports post thumbnails
 Author: Mohamed Hamad
 */
-$blog_options = get_option('tw_theme_blog_options');
-$rpo = (is_array($blog_options)&& isset($blog_options['enable_related_posts']) ) ? !!$blog_options['enable_related_posts'] : false;
+$rpo = tw_is_related_posts_enabled();
 
 if($rpo):
 

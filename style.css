@@ -9816,6 +9816,27 @@ fieldset[disabled] .post-edit-link.active {
   content: "\f044";
   margin-right: 5px;
 }
+#post-meta-panel {
+  margin-top: 15px;
+  font-size: 0.8em;
+  text-align: center;
+}
+#post-meta-panel .profile-image {
+  max-width: 100%;
+  width: 100%;
+  width: 75px !important;
+  height: auto;
+  margin: 0 auto 10px auto;
+}
+#post-meta-panel ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+#post-meta-panel ul li {
+  padding-top: 5px;
+  text-align: center;
+}
 /********************
 *** Image Slider  ***
 ********************/
@@ -10020,6 +10041,12 @@ fieldset[disabled] .post-edit-link.active {
   float: right !important;
   float: right;
 }
+.post .entry-header,
+.type-post .entry-header,
+.single .entry-header {
+  border-bottom: 1px solid #e1e1e1;
+  margin-bottom: 15px;
+}
 .post .entry-header .entry-image,
 .type-post .entry-header .entry-image,
 .single .entry-header .entry-image {
@@ -10201,7 +10228,7 @@ fieldset[disabled] .post-edit-link.active {
 .post .article-quote,
 .type-post .article-quote,
 .single .article-quote {
-  margin-top: 25px;
+  margin-top: 15px;
   margin-bottom: 25px;
 }
 .post .article-audio h3,
@@ -10291,14 +10318,312 @@ fieldset[disabled] .post-edit-link.active {
   text-transform: capitalize;
 }
 #related-posts .related-post-inner .related-post-container .related-post {
-  min-height: 350px;
+  border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  -o-border-radius: 0 !important;
+  padding: 0;
 }
 #related-posts .related-post-inner .related-post-container .related-post .caption h3 {
   margin-top: 10px;
+  margin-bottom: 5px;
 }
 #related-posts .related-post-inner .related-post-container .related-post .caption time.updated {
   font-size: 0.8em;
   font-style: italic;
+}
+/********************
+******* Sharing *****
+********************/
+.social-sharing {
+  clear: both;
+  margin: 20px auto;
+  border: 1px solid #e1e1e1;
+}
+.social-sharing ul {
+  clear: both;
+  width: 100%;
+  padding: 0;
+  margin: 0px auto;
+  list-style: none;
+}
+.social-sharing ul li {
+  width: 20%;
+  display: inline-block;
+  float: left;
+  text-align: center;
+  background: white;
+  background: rgba(255, 255, 255, 0.5);
+  font-size: 1em;
+  line-height: 64px;
+  border-left: 1px solid #e1e1e1;
+}
+.social-sharing ul li::first-child {
+  border: none;
+}
+.social-sharing ul li a {
+  color: #333333;
+}
+.social-sharing ul li.facebook,
+.social-sharing ul li.twitter,
+.social-sharing ul li.googleplus,
+.social-sharing ul li.pinterest,
+.social-sharing ul li.email {
+  position: relative;
+  color: #333333;
+}
+.social-sharing ul li.facebook a,
+.social-sharing ul li.twitter a,
+.social-sharing ul li.googleplus a,
+.social-sharing ul li.pinterest a,
+.social-sharing ul li.email a {
+  color: #333333 !important;
+}
+.social-sharing ul li.facebook .overlay,
+.social-sharing ul li.twitter .overlay,
+.social-sharing ul li.googleplus .overlay,
+.social-sharing ul li.pinterest .overlay,
+.social-sharing ul li.email .overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  line-height: 16px;
+  color: #fff;
+}
+.social-sharing ul li.facebook .overlay .shared-count,
+.social-sharing ul li.twitter .overlay .shared-count,
+.social-sharing ul li.googleplus .overlay .shared-count,
+.social-sharing ul li.pinterest .overlay .shared-count,
+.social-sharing ul li.email .overlay .shared-count {
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-bottom: 3px;
+}
+.social-sharing ul li.facebook .overlay .share-title,
+.social-sharing ul li.twitter .overlay .share-title,
+.social-sharing ul li.googleplus .overlay .share-title,
+.social-sharing ul li.pinterest .overlay .share-title,
+.social-sharing ul li.email .overlay .share-title {
+  font-size: 0.95em;
+}
+.social-sharing ul li.facebook:hover,
+.social-sharing ul li.twitter:hover,
+.social-sharing ul li.googleplus:hover,
+.social-sharing ul li.pinterest:hover,
+.social-sharing ul li.email:hover {
+  color: #fff;
+}
+.social-sharing ul li.facebook:hover .overlay,
+.social-sharing ul li.twitter:hover .overlay,
+.social-sharing ul li.googleplus:hover .overlay,
+.social-sharing ul li.pinterest:hover .overlay,
+.social-sharing ul li.email:hover .overlay {
+  display: block;
+  color: white;
+}
+.social-sharing ul li.facebook:hover .overlay a,
+.social-sharing ul li.twitter:hover .overlay a,
+.social-sharing ul li.googleplus:hover .overlay a,
+.social-sharing ul li.pinterest:hover .overlay a,
+.social-sharing ul li.email:hover .overlay a {
+  color: white;
+}
+.social-sharing ul li.email:hover {
+  background-color: #cccccc;
+}
+.social-sharing ul li.facebook:hover {
+  background-color: #3b5998;
+}
+.social-sharing ul li.facebook:hover .overlay {
+  background-color: #3b5998;
+  color: #fff;
+}
+.social-sharing ul li.facebook:hover a {
+  background-color: #3b5998;
+  color: #fff !important;
+}
+.social-sharing ul li.twitter:hover {
+  background-color: #55acee;
+  color: #fff;
+}
+.social-sharing ul li.twitter:hover .overlay {
+  background-color: #55acee;
+  color: #fff;
+}
+.social-sharing ul li.twitter:hover a {
+  color: #fff !important;
+}
+.social-sharing ul li.googleplus:hover {
+  background-color: #dd4b39;
+  color: #fff;
+}
+.social-sharing ul li.googleplus:hover .overlay {
+  background-color: #dd4b39;
+  color: #fff;
+}
+.social-sharing ul li.googleplus:hover a {
+  color: #fff !important;
+}
+.social-sharing ul li.pinterest:hover {
+  background-color: #cc2127;
+  color: #fff;
+}
+.social-sharing ul li.pinterest:hover .overlay {
+  background-color: #cc2127;
+  color: #fff;
+}
+.social-sharing ul li.pinterest:hover a {
+  color: #fff !important;
+}
+.social-panel {
+  margin: 20px auto;
+  z-index: 1000;
+}
+.social-panel ul {
+  width: 128px;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid #e1e1e1;
+  z-index: 1000;
+}
+.social-panel ul a {
+  color: #333333;
+}
+.social-panel ul li {
+  position: relative;
+  background: white;
+  background: rgba(255, 255, 255, 0.2);
+  display: inline-block;
+  text-align: center;
+  font-size: 1.2em;
+  margin-right: 0 !important;
+}
+.social-panel ul li.views,
+.social-panel ul li.email {
+  width: 100%;
+  float: none;
+  display: block;
+}
+.social-panel ul li.facebook,
+.social-panel ul li.twitter,
+.social-panel ul li.googleplus,
+.social-panel ul li.pinterest {
+  position: relative;
+  line-height: 64px;
+  width: 50%;
+  float: left;
+  color: #333333;
+}
+.social-panel ul li.facebook .overlay,
+.social-panel ul li.twitter .overlay,
+.social-panel ul li.googleplus .overlay,
+.social-panel ul li.pinterest .overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  line-height: 16px;
+  color: #fff;
+}
+.social-panel ul li.facebook .overlay .shared-count,
+.social-panel ul li.twitter .overlay .shared-count,
+.social-panel ul li.googleplus .overlay .shared-count,
+.social-panel ul li.pinterest .overlay .shared-count {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+.social-panel ul li.facebook .overlay .share-title,
+.social-panel ul li.twitter .overlay .share-title,
+.social-panel ul li.googleplus .overlay .share-title,
+.social-panel ul li.pinterest .overlay .share-title {
+  font-size: 0.95em;
+}
+.social-panel ul li.facebook:hover .overlay,
+.social-panel ul li.twitter:hover .overlay,
+.social-panel ul li.googleplus:hover .overlay,
+.social-panel ul li.pinterest:hover .overlay {
+  display: block;
+  color: white;
+}
+.social-panel ul li.views {
+  padding: 15px 5px 10px 5px;
+  border-bottom: 1px solid #e1e1e1;
+}
+.social-panel ul li.views .view-count,
+.social-panel ul li.views .view-title {
+  padding: 5px 0;
+}
+.social-panel ul li.views .view-count {
+  font-size: 2em;
+  font-weight: bold;
+}
+.social-panel ul li.views .view-title {
+  font-size: 1.25em;
+  color: #333333;
+}
+.social-panel ul li.email {
+  width: 100%;
+  line-height: 64px;
+  clear: both;
+  border-top: 1px solid #e1e1e1;
+}
+.social-panel ul li.email:hover {
+  color: #fff;
+  border: none;
+  background-color: #cccccc;
+}
+.social-panel ul li.facebook {
+  border-bottom: 1px solid #e1e1e1;
+}
+.social-panel ul li.facebook:hover {
+  background-color: #3b5998;
+  color: #fff;
+}
+.social-panel ul li.facebook:hover .overlay {
+  background-color: #3b5998;
+  color: #fff;
+}
+.social-panel ul li.twitter {
+  border-bottom: 1px solid #e1e1e1;
+  border-left: 1px solid #e1e1e1;
+}
+.social-panel ul li.twitter:hover {
+  background-color: #55acee;
+  color: #fff;
+}
+.social-panel ul li.twitter:hover .overlay {
+  background-color: #55acee;
+  color: #fff;
+}
+.social-panel ul li.googleplus:hover {
+  background-color: #dd4b39;
+  color: #fff;
+}
+.social-panel ul li.googleplus:hover .overlay {
+  background-color: #dd4b39;
+  color: #fff;
+}
+.social-panel ul li.pinterest {
+  border-left: 1px solid #e1e1e1;
+}
+.social-panel ul li.pinterest:hover {
+  background-color: #cc2127;
+  color: #fff;
+}
+.social-panel ul li.pinterest:hover .overlay {
+  background-color: #cc2127;
+  color: #fff;
 }
 /********************
 ******* Images ******
@@ -10844,6 +11169,91 @@ textarea#respond textarea {
   }
   .carousel .carousel-inner .item .carousel-caption p {
     font-size: 0.8em;
+  }
+  .social-panel {
+    margin-top: 15px;
+    clear: both;
+    display: block;
+    border: 1px solid #e1e1e1;
+    padding: 0;
+  }
+  .social-panel ul {
+    width: 100%;
+    border: none;
+  }
+  .social-panel ul li {
+    display: inline-block !important;
+  }
+  .social-panel ul li.views {
+    width: 25%;
+    float: left !important;
+    display: inline-block;
+    padding: 0;
+    border: none;
+  }
+  .social-panel ul li.views .view-count,
+  .social-panel ul li.views .view-title {
+    font-size: 0.77777778px;
+    display: inline-block;
+    padding: 0;
+    line-height: 64px;
+  }
+  .social-panel ul li.facebook,
+  .social-panel ul li.twitter,
+  .social-panel ul li.googleplus,
+  .social-panel ul li.pinterest,
+  .social-panel ul li.email {
+    width: 20%;
+    float: left;
+    display: inline-block !important;
+    border: none;
+  }
+  .social-panel ul li.email {
+    clear: none;
+  }
+}
+/* From Phone to Tablet */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .social-panel {
+    margin-top: 15px;
+    clear: both;
+    display: block;
+    border: 1px solid #e1e1e1;
+    padding: 0;
+  }
+  .social-panel ul {
+    width: 100%;
+    border: none;
+  }
+  .social-panel ul li {
+    display: inline-block !important;
+  }
+  .social-panel ul li.views {
+    width: 25%;
+    float: left !important;
+    display: inline-block;
+    padding: 0;
+    border: none;
+  }
+  .social-panel ul li.views .view-count,
+  .social-panel ul li.views .view-title {
+    font-size: 0.77777778px;
+    display: inline-block;
+    padding: 0;
+    line-height: 64px;
+  }
+  .social-panel ul li.facebook,
+  .social-panel ul li.twitter,
+  .social-panel ul li.googleplus,
+  .social-panel ul li.pinterest,
+  .social-panel ul li.email {
+    width: 20%;
+    float: left;
+    display: inline-block !important;
+    border: none;
+  }
+  .social-panel ul li.email {
+    clear: none;
   }
 }
 /* Medium devices (desktops, 992px and up) */
@@ -11406,6 +11816,46 @@ textarea.widget_categories .postform {
   right: 5%;
   margin-left: 0;
   bottom: 0px;
+}
+.widget_twservicescategorywidget,
+.widget_twserviceswidget {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.widget_twservicescategorywidget .widget-title,
+.widget_twserviceswidget .widget-title {
+  text-align: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e1e1e1;
+}
+.widget_twservicescategorywidget .thumbnail,
+.widget_twserviceswidget .thumbnail {
+  border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  -o-border-radius: 0 !important;
+  border: none;
+  padding: 0;
+}
+.widget_twservicescategorywidget .thumbnail .caption h2,
+.widget_twserviceswidget .thumbnail .caption h2,
+.widget_twservicescategorywidget .thumbnail .caption h3,
+.widget_twserviceswidget .thumbnail .caption h3 {
+  text-align: center;
+}
+.widget_twservicescategorywidget .thumbnail .caption .icon,
+.widget_twserviceswidget .thumbnail .caption .icon {
+  text-align: center;
+  font-size: 2em;
+}
+.widget_twservicescategorywidget .thumbnail .caption p,
+.widget_twserviceswidget .thumbnail .caption p {
+  text-align: justify;
+}
+.widget_twservicescategorywidget .more,
+.widget_twserviceswidget .more {
+  text-align: center;
 }
 .widget-area .widget_twslideswidget .carousel-caption,
 .widget-area .widget_twslideswidget .carousel-indicators {

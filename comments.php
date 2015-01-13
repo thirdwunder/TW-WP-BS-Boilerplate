@@ -15,10 +15,9 @@
  */
 $fb_comments = false;
 $fb_app_id = null;
-$blog_options = get_option('tw_theme_blog_options') ? get_option('tw_theme_blog_options') : null;
-$social_options = get_option('tw_theme_social_options') ? get_option('tw_theme_social_options') : null;
-if(is_array($blog_options) && isset($blog_options['enable_fb_comments'])){
-  $fb_comments = !!$blog_options['enable_fb_comments'];
+$social_options = tw_get_social_options();
+if(is_array($social_options) && isset($social_options['enable_fb_comments'])){
+  $fb_comments = !!$social_options['enable_fb_comments'];
 }
 if(is_array($social_options) && isset($social_options['fb_app_id']) ){
   $fb_app_id = trim($social_options['fb_app_id']);

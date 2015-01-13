@@ -1,10 +1,4 @@
-<?php
-$fb_comments = false;
-$blog_options = get_option('tw_theme_blog_options') ? get_option('tw_theme_blog_options') : null;
-if(is_array($blog_options) && isset($blog_options['enable_fb_comments'])){
-  $fb_comments = !!$blog_options['enable_fb_comments'];
-}
-?>
+<?php $fb_comments = tw_is_fb_coments_enabled(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('row'); ?> <?php echo tw_html_tag_schema('Article'); ?>>
   <div class="entry-image col-sm-3 col-md-3">
     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" itemprop="url">

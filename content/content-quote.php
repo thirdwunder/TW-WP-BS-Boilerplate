@@ -44,43 +44,49 @@
       <?php
       }
     ?>
-    <?php get_template_part('content/_post-meta'); ?>
+    <?php //get_template_part('content/_post-meta'); ?>
 
   </header>
 
   <?php if(is_single()): ?>
-    <section class="entry-content" itemprop="articleBody">
+    <section class="entry-content row">
+      <?php get_template_part('content/_post-meta-panel'); ?>
+      <div class="col-xs-12 col-sm-12 col-md-9" itemprop="articleBody">
 
-      <?php if($quote!==''): ?>
-      <div id="article-quote" class="article-quote">
-        <blockquote <?php if($quote_source_url!==''){ echo 'cite="'.$quote_source_url.'"';} ;?>>
-          <p><?php echo $quote; ?></p>
+        <?php if($quote!==''): ?>
+        <div id="article-quote" class="article-quote">
+          <blockquote <?php if($quote_source_url!==''){ echo 'cite="'.$quote_source_url.'"';} ;?>>
+            <p><?php echo $quote; ?></p>
 
-          <?php if($quote_source_url!==''):?>
-            <footer><a href="<?php echo $quote_source_url;?>" target="_blank">
-              <?php echo $attribution; ?>
-            </a></footer>
-          <?php else: ?>
-            <footer><?php echo $attribution; ?></footer>
-          <?php endif; ?>
+            <?php if($quote_source_url!==''):?>
+              <footer><a href="<?php echo $quote_source_url;?>" target="_blank">
+                <?php echo $attribution; ?>
+              </a></footer>
+            <?php else: ?>
+              <footer><?php echo $attribution; ?></footer>
+            <?php endif; ?>
 
-        </blockquote>
+          </blockquote>
+        </div>
+        <?php endif; ?>
+
+
+        <?php the_content();
+      		wp_link_pages( array(
+    				'before'      => '<nav class="navigation post-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement"><span class="page-links-title">' . __( 'Pages:', 'tw' ) . '</span>',
+    				'after'       => '</nav>',
+    				'link_before' => '<span>',
+    				'link_after'  => '</span>',
+    				'pagelink'    => '<span class="sr-only">' . __( 'Page', 'tw' ) . ' </span>%',
+    				'separator'   => '<span class="sr-only">, </span>',
+    				'echo'             => 0
+    			) );
+        ?>
+        <?php get_template_part( 'content/_post-footer' ); ?>
+
       </div>
-      <?php endif; ?>
 
-
-      <?php the_content();
-    		wp_link_pages( array(
-  				'before'      => '<nav class="navigation post-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement"><span class="page-links-title">' . __( 'Pages:', 'tw' ) . '</span>',
-  				'after'       => '</nav>',
-  				'link_before' => '<span>',
-  				'link_after'  => '</span>',
-  				'pagelink'    => '<span class="sr-only">' . __( 'Page', 'tw' ) . ' </span>%',
-  				'separator'   => '<span class="sr-only">, </span>',
-  				'echo'             => 0
-  			) );
-      ?>
-    </section>
+          </section>
   <?php else: ?>
     <section class="entry-content" itemprop="description">
       <?php the_excerpt(); ?>
@@ -91,8 +97,12 @@
 
 
   <?php
-    if( is_single() && get_the_author_meta( 'description' ) ){
-      get_template_part( 'author-bio' );
+    if( is_single()){
+      if(get_the_author_meta( 'description' ) ){
+        get_template_part( 'author-bio' );
+      }
+
+      get_template_part('content/_social-sharing');
     }
   ?>
 </article>

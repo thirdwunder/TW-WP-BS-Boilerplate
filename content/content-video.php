@@ -61,23 +61,28 @@ $video_embed = tw_videoURL_to_embedCode($video_url, $video_autoplay);
       <?php
       }
     ?>
-    <?php get_template_part('content/_post-meta'); ?>
+    <?php //get_template_part('content/_post-meta'); ?>
 
   </header>
 
   <?php if(is_single()): ?>
-    <section class="entry-content" itemprop="articleBody">
-      <?php the_content();
-    		wp_link_pages( array(
-  				'before'      => '<nav class="navigation post-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement"><span class="page-links-title">' . __( 'Pages:', 'tw' ) . '</span>',
-  				'after'       => '</nav>',
-  				'link_before' => '<span>',
-  				'link_after'  => '</span>',
-  				'pagelink'    => '<span class="sr-only">' . __( 'Page', 'tw' ) . ' </span>%',
-  				'separator'   => '<span class="sr-only">, </span>',
-  				'echo'             => 0
-  			) );
-      ?>
+    <section class="entry-content row" itemprop="articleBody">
+      <?php get_template_part('content/_post-meta-panel'); ?>
+
+      <div class="col-xs-12 col-sm-12 col-md-9" itemprop="articleBody">
+        <?php the_content();
+      		wp_link_pages( array(
+    				'before'      => '<nav class="navigation post-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement"><span class="page-links-title">' . __( 'Pages:', 'tw' ) . '</span>',
+    				'after'       => '</nav>',
+    				'link_before' => '<span>',
+    				'link_after'  => '</span>',
+    				'pagelink'    => '<span class="sr-only">' . __( 'Page', 'tw' ) . ' </span>%',
+    				'separator'   => '<span class="sr-only">, </span>',
+    				'echo'             => 0
+    			) );
+        ?>
+        <?php get_template_part( 'content/_post-footer' ); ?>
+      </div>
     </section>
   <?php else: ?>
     <section class="entry-content" itemprop="description">
@@ -85,11 +90,13 @@ $video_embed = tw_videoURL_to_embedCode($video_url, $video_autoplay);
     </section>
   <?php endif; ?>
 
-  <?php get_template_part( 'content/_post-footer' ); ?>
-
   <?php
-    if( is_single() && get_the_author_meta( 'description' ) ){
-      get_template_part( 'author-bio' );
+    if( is_single()){
+      if(get_the_author_meta( 'description' ) ){
+        get_template_part( 'author-bio' );
+      }
+
+      get_template_part('content/_social-sharing');
     }
   ?>
 </article>
