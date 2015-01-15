@@ -28,7 +28,7 @@
   <!-- Offcanvas Menu -->
   <nav id="menu-mobile" class="navmenu navmenu-default navmenu-fixed-right offcanvas" itemtype="http://schema.org/SiteNavigationElement">
     <a class="navmenu-brand" href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>" rel="home">
-      <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo.png" alt="<?php bloginfo('name'); ?> Logo" />
+      <img src="<?php echo tw_get_logo(); ?>" alt="<?php bloginfo('name'); ?> Logo" />
       <span class="sr-only"><?php bloginfo('name'); ?></span>
     </a>
 
@@ -114,7 +114,7 @@
 
 
           <a class="navbar-brand navbar-brand-logo" href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>" rel="home">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo.png" alt="<?php bloginfo('name'); ?>
+            <img src="<?php echo tw_get_logo(); ?>" alt="<?php bloginfo('name'); ?>
             Logo" />
             <span class="sr-only"><?php bloginfo('name'); ?></span>
           </a> <!-- .navbar-brand -->

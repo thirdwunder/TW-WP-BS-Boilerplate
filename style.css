@@ -11576,17 +11576,25 @@ textarea.widget_categories .postform {
 .widget_tw_blog_widget .thumbnail .caption p {
   text-align: left;
 }
-.widget_tw_blog_widget .thumbnail .caption h2,
-.widget_tw_blog_widget .thumbnail .caption h3 {
-  margin-top: 5px;
-  font-size: 1.2em;
+.widget_tw_blog_widget .thumbnail .caption p.time {
+  font-size: 0.8em;
 }
 .widget_tw_blog_widget .more {
   text-align: center;
 }
+.widget-area .widget_tw_blog_widget .thumbnail .caption h2,
+.widget-area .widget_tw_blog_widget .thumbnail .caption h3 {
+  margin-top: 5px;
+  font-size: 1.2em;
+}
 .widget-area .widget_tw_blog_widget .thumbnail .caption p {
   display: none;
   visibility: hidden;
+}
+.widget-area .widget_tw_blog_widget .thumbnail .caption p.time {
+  display: block;
+  visibility: visible;
+  text-align: left;
 }
 .widget-area .widget_tw_blog_widget .more .btn-primary {
   width: 100%;
@@ -11644,6 +11652,9 @@ textarea.widget_categories .postform {
 }
 #homepage-widgets .widget_tw_blog_widget .blog-container .caption p {
   text-align: justify;
+}
+#homepage-widgets .widget_tw_blog_widget .blog-container .caption p.time {
+  text-align: center;
 }
 #homepage-widgets .widget_tw_blog_widget .blog-container .more .btn-primary {
   min-width: 50% !important;
