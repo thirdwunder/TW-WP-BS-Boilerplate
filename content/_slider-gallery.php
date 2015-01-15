@@ -1,9 +1,11 @@
 <?php
 $image_sizes = array('4x3-small','16x9-medium','16x9-large');
 $images = tw_get_post_images($image_sizes, 0);
+$slider_transition = tw_get_slider_style()=='fade' ? 'carousel-fade' : '';
+
 
 if(count($images)): ?>
-  <section id="gallery-carousel-<?php echo $post->ID; ?>" class="gallery-carousel carousel carousel-fade slide">
+  <section id="gallery-carousel-<?php echo $post->ID; ?>" class="gallery-carousel carousel <?php echo $slider_transition; ?> slide" >
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <?php for($i=0; $i<count($images); $i++): ?>

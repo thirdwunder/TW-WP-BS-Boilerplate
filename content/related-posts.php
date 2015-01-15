@@ -34,7 +34,7 @@ if($rpo):
           while( $my_query->have_posts() ){
             $my_query->the_post();
           ?>
-            <article class="related-post-container col-xs-12 col-sm-6 col-md-3" <?php echo tw_html_tag_schema(); ?>>
+            <article class="related-post-container col-xs-12 col-sm-6 col-md-6" <?php echo tw_html_tag_schema(); ?>>
               <div class="related-post thumbnail">
                 <a href="<?php the_permalink(); ?>"  itemprop="url"><?php the_post_thumbnail('4x3-small', array('class'=>'','itemprop'=>'image')) ;?></a>
                 <div class="caption">
