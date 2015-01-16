@@ -49,6 +49,8 @@ if(is_array($j_options)){
   }
   $j_video_embed = tw_videoURL_to_embedCode($j_video_url, $j_video_autoplay);
 
+  $j_button = (isset($j_options['tw_jumbotron_button_title']) && trim($j_options['tw_jumbotron_button_title'])!=='') ? trim($j_options['tw_jumbotron_button_title']) : false;
+  $j_url     = (isset($j_options['tw_jumbotron_button_url']) && trim($j_options['tw_jumbotron_button_url'])!=='') ? trim($j_options['tw_jumbotron_button_url']) : false;
 }
 get_header(); ?>
 <!-- Site Container -->
@@ -59,8 +61,8 @@ get_header(); ?>
       <div class="col-xs-12 col-sm-12 col-md-12">
         <?php if(isset($j_options['tw_jumbotron_title'])):?><h1><?php echo $j_options['tw_jumbotron_title'];?></h1><?php endif; ?>
         <?php if(isset($j_options['tw_jumbotron_text'])):?><p><?php echo $j_options['tw_jumbotron_text'];?></p><?php endif; ?>
-        <?php if(isset($j_options['tw_jumbotron_button_title'])  && isset($j_options['tw_jumbotron_button_url'])): ?>
-        <p><a class="btn btn-primary btn-lg" href="<?php echo $j_options['tw_jumbotron_button_url'];?>" role="button"><?php echo $j_options['tw_jumbotron_button_title'];?></a></p>
+        <?php if($j_button  && $j_url): ?>
+        <p><a class="btn btn-primary btn-lg" href="<?php echo $j_url;?>" role="button"><?php echo $j_button;?></a></p>
         <?php endif; ?>
       </div>
     <?php else: ?>
