@@ -36,25 +36,54 @@
       <?php endif; ?>
 
       <?php
-        $footer_menu = isset($tgo['enable_footer_menu']) ? $tgo['enable_footer_menu'] : false;
-        if($footer_menu): ?>
-      <div id="footer-menu" role="navigation" class="" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+        $footer_menu    = isset($tgo['enable_footer_menu']) ?   !!$tgo['enable_footer_menu']   : false;
+        $footer_social  = isset($tgo['enable_footer_social']) ? !!$tgo['enable_footer_social'] : false;
+        if($footer_menu || $footer_social):
+          if($footer_menu && $footer_social){
+            $footer_menu_class = 'col-xs-12 col-sm-8 col-md-8';
+            $footer_social_class = 'col-xs-12 col-sm-4 col-md-4';
+          }elseif(!$footer_menu && $footer_social){
+            $footer_menu_class = '';
+            $footer_social_class = 'col-xs-12 col-sm-6 col-sm-push-6 col-md-6 col-sm-push-6';
+          }elseif($footer_menu && !$footer_social){
+            $footer_menu_class = 'col-xs-12 col-sm-12 col-md-12';
+            $footer_social_class = '';
+          }
+        ?>
+      <div id="footer-menu" role="navigation" class="row" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
         <?php
-           if ( has_nav_menu( 'footer' ) ){
-
+           if ( has_nav_menu( 'footer' ) && $footer_menu ){
              wp_nav_menu( array(
             		'menu'       => 'footer',
             		'theme_location' => 'footer',
             		'depth'      => 2,
             		'container'  => false,
-            		//'menu_class' => 'nav navbar-nav navbar-right', //
+            		'menu_class' => $footer_menu_class, //
             		'fallback_cb' => 'wp_page_menu',
             		//'walker' => new tw_wp_bootstrap_navwalker()
             		)
             	);
-
            }
         ?>
+        <?php if($footer_social): ?>
+          <?php
+            $social_info   = tw_get_theme_social_options();
+            if($social_info):
+              $count = count($social_info);
+            ?>
+            <div id="footer-social" class="footer-social <?php echo $footer_social_class;?>">
+              <ul>
+                <?php foreach($social_info as $network=>$details): ?>
+                  <li class="width-<?php echo $count; ?>">
+                    <a class="contact-<?php echo $network; ?>" href="<?php echo $details['url']; ?>" target="_blank" title="<?php echo ucfirst($network); ?>"><i class="fa <?php echo $details['icon']; ?>"></i></a>
+                  </li>
+                <?php endforeach; ?>
+              </ul>
+            </div>
+          <?php endif; ?>
+
+
+        <?php endif; ?>
       </div>
       <?php endif; ?>
 

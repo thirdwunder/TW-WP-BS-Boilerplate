@@ -1,5 +1,6 @@
 <?php $fb_comments = tw_is_fb_coments_enabled(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('row'); ?> <?php echo tw_html_tag_schema('Article'); ?>>
+  <?php if(has_post_thumbnail()): ?>
   <div class="entry-image col-sm-3 col-md-3">
     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" itemprop="url">
       <?php //the_post_thumbnail($img_size, array('itemprop'=>'image')); ?>
@@ -7,6 +8,9 @@
     </a>
   </div>
   <div class="col-sm-9 col-md-9">
+  <?php else: ?>
+  <div class="col-sm-12 col-md-12">
+  <?php endif; ?>
     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" itemprop="url">
       <h2 class="entry-title" itemprop="headline"><?php the_title(); ?></h2>
     </a>

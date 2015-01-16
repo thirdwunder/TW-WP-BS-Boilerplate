@@ -93,9 +93,6 @@
     </section>
   <?php endif; ?>
 
-  <?php get_template_part( 'content/_post-footer' ); ?>
-
-
   <?php
     if( is_single()){
       if(get_the_author_meta( 'description' ) ){
