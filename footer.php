@@ -26,7 +26,7 @@
       ?>
       <div id="footer-widget-area" class="footer-widgets row">
         <?php for($i=1;$i<=$footer_wigets; $i++): ?>
-          <div id="footer-widget-<?php echo $i; ?>" class="<?= $cols; ?>" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+          <div id="footer-widget-<?php echo $i; ?>" class="footer-widget-<?php echo $footer_wigets;?> <?= $cols; ?>" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
             <div id="widget-area" class="widget-area" role="complementary">
           		<?php dynamic_sidebar( 'footer-'.$i ); ?>
           	</div><!-- .widget-area -->
@@ -38,17 +38,7 @@
       <?php
         $footer_menu    = isset($tgo['enable_footer_menu']) ?   !!$tgo['enable_footer_menu']   : false;
         $footer_social  = isset($tgo['enable_footer_social']) ? !!$tgo['enable_footer_social'] : false;
-        if($footer_menu || $footer_social):
-          if($footer_menu && $footer_social){
-            $footer_menu_class = 'col-xs-12 col-sm-8 col-md-8';
-            $footer_social_class = 'col-xs-12 col-sm-4 col-md-4';
-          }elseif(!$footer_menu && $footer_social){
-            $footer_menu_class = '';
-            $footer_social_class = 'col-xs-12 col-sm-6 col-sm-push-6 col-md-6 col-sm-push-6';
-          }elseif($footer_menu && !$footer_social){
-            $footer_menu_class = 'col-xs-12 col-sm-12 col-md-12';
-            $footer_social_class = '';
-          }
+        if($footer_menu ):
         ?>
       <div id="footer-menu" role="navigation" class="row" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
         <?php
@@ -65,25 +55,6 @@
             	);
            }
         ?>
-        <?php if($footer_social): ?>
-          <?php
-            $social_info   = tw_get_theme_social_options();
-            if($social_info):
-              $count = count($social_info);
-            ?>
-            <div id="footer-social" class="footer-social <?php echo $footer_social_class;?>">
-              <ul>
-                <?php foreach($social_info as $network=>$details): ?>
-                  <li class="width-<?php echo $count; ?>">
-                    <a class="contact-<?php echo $network; ?>" href="<?php echo $details['url']; ?>" target="_blank" title="<?php echo ucfirst($network); ?>"><i class="fa <?php echo $details['icon']; ?>"></i></a>
-                  </li>
-                <?php endforeach; ?>
-              </ul>
-            </div>
-          <?php endif; ?>
-
-
-        <?php endif; ?>
       </div>
       <?php endif; ?>
 
@@ -92,7 +63,35 @@
           <?php tw_copyright(); ?>
         </div>
         <div id="credit" class="col-xs-12 col-sm-6 col-md-6">
-          <?php tw_credit(); ?>
+          <?php //tw_credit(); ?>
+
+
+          <?php if($footer_social): ?>
+          <?php
+            $social_info   = tw_get_theme_social_options();
+            if($social_info):
+              $count = count($social_info);
+            ?>
+            <div id="footer-social" class="footer-social <?php //echo $footer_social_class;?>">
+              <ul>
+                <?php foreach($social_info as $network=>$details): ?>
+                  <li class="width-<?php echo $count; ?>">
+                    <a class="contact-<?php echo $network; ?>" href="<?php echo $details['url']; ?>" target="_blank" title="<?php echo ucfirst($network); ?>">
+                      <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa <?php echo $details['icon']; ?> fa-stack-1x fa-inverse"></i>
+                      </span>
+                      <!-- <i class="fa <?php echo $details['icon']; ?>"></i> -->
+                    </a>
+                  </li>
+                <?php endforeach; ?>
+              </ul>
+            </div>
+          <?php endif; ?>
+
+
+        <?php endif; ?>
+
         </div>
       </div>
     </div>

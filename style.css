@@ -1100,7 +1100,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 16px;
   line-height: 1.42857143;
   color: #333333;
@@ -5818,7 +5818,7 @@ button.close {
   z-index: 1070;
   display: block;
   visibility: visible;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.4;
@@ -5925,7 +5925,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 16px;
   font-weight: normal;
   line-height: 1.42857143;
@@ -7196,8 +7196,8 @@ button.close {
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url('//netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.eot?v=4.2.0');
-  src: url('//netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.eot?#iefix&v=4.2.0') format('embedded-opentype'), url('//netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.woff?v=4.2.0') format('woff'), url('//netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.ttf?v=4.2.0') format('truetype'), url('//netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');
+  src: url('includes/fontawesome/fonts/fontawesome-webfont.eot?v=4.2.0');
+  src: url('includes/fontawesome/fonts/fontawesome-webfont.eot?#iefix&v=4.2.0') format('embedded-opentype'), url('includes/fontawesome/fonts/fontawesome-webfont.woff?v=4.2.0') format('woff'), url('includes/fontawesome/fonts/fontawesome-webfont.ttf?v=4.2.0') format('truetype'), url('includes/fontawesome/fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -9467,6 +9467,9 @@ blockquote footer {
 #menu-mobile .mobile-contact-social ul li a.contact-slideshare {
   color: #e98325;
 }
+#menu-mobile .mobile-contact-social ul li a .fa-stack {
+  font-size: 0.6em;
+}
 #menu-mobile .mobile-contact-social ul li.width-1 {
   font-size: 2.4em;
 }
@@ -9980,6 +9983,7 @@ fieldset[disabled] .post-edit-link.active {
   padding-bottom: 15px;
 }
 #home-page .page-header {
+  border-color: #e1e1e1;
   margin-top: 0;
 }
 #home-page .page-header h1 {
@@ -10041,6 +10045,9 @@ fieldset[disabled] .post-edit-link.active {
 }
 #page-contact .contact-details .contact-social ul li a.contact-slideshare {
   color: #e98325;
+}
+#page-contact .contact-details .contact-social ul li a .fa-stack {
+  font-size: 0.6em;
 }
 #page-contact .contact-form-area .contact-form-wrapper {
   padding-left: 15px;
@@ -10277,6 +10284,11 @@ fieldset[disabled] .post-edit-link.active {
 .type-post #entry-author .author-image,
 .single #entry-author .author-image {
   margin-left: 25px;
+}
+.page-archive .page-header,
+.type-page .page-header {
+  margin-top: 0;
+  border-color: #e1e1e1;
 }
 .page-archive .page-header #entry-author,
 .type-page .page-header #entry-author {
@@ -10640,6 +10652,7 @@ fieldset[disabled] .post-edit-link.active {
 ******* Images ******
 ********************/
 .wp-caption {
+  max-width: 100%;
   background-color: #f9f9f9;
   padding: 0;
 }
@@ -10647,6 +10660,7 @@ fieldset[disabled] .post-edit-link.active {
   margin: 0 auto;
   width: 100%;
   max-width: 100%;
+  height: auto;
 }
 .wp-caption .wp-caption-text {
   padding: 5px 10px;
@@ -11066,13 +11080,133 @@ textarea#respond textarea {
 #site-footer a:hover {
   color: #22527b;
 }
+#site-footer .footer-container #footer-social ul {
+  list-style: none;
+  padding-left: 15px;
+  margin: 10px auto;
+}
+#site-footer .footer-container #footer-social ul li {
+  display: inline;
+  display: inline-block;
+}
+#site-footer .footer-container #footer-social ul li a.contact-facebook {
+  color: #3b5998;
+}
+#site-footer .footer-container #footer-social ul li a.contact-twitter {
+  color: #55acee;
+}
+#site-footer .footer-container #footer-social ul li a.contact-instagram {
+  color: #3f729b;
+}
+#site-footer .footer-container #footer-social ul li a.contact-pinterest {
+  color: #cc2127;
+}
+#site-footer .footer-container #footer-social ul li a.contact-linkedin {
+  color: #0976b4;
+}
+#site-footer .footer-container #footer-social ul li a.contact-youtube {
+  color: #e52d27;
+}
+#site-footer .footer-container #footer-social ul li a.contact-googleplus {
+  color: #dd4b39;
+}
+#site-footer .footer-container #footer-social ul li a.contact-flickr {
+  color: #ff0084;
+}
+#site-footer .footer-container #footer-social ul li a.contact-tumblr {
+  color: #35465c;
+}
+#site-footer .footer-container #footer-social ul li a.contact-vimeo {
+  color: #1ab7ea;
+}
+#site-footer .footer-container #footer-social ul li a.contact-slideshare {
+  color: #e98325;
+}
+#site-footer .footer-container #footer-social ul li a .fa-stack {
+  font-size: 0.6em;
+}
+#site-footer .footer-container #footer-social ul li.width-1 {
+  font-size: 2.4em;
+}
+#site-footer .footer-container #footer-social ul li.width-2 {
+  font-size: 2.3em;
+}
+#site-footer .footer-container #footer-social ul li.width-3 {
+  font-size: 2.2em;
+}
+#site-footer .footer-container #footer-social ul li.width-4 {
+  font-size: 2.1em;
+}
+#site-footer .footer-container #footer-social ul li.width-5 {
+  font-size: 2em;
+}
+#site-footer .footer-container #footer-social ul li.width-6 {
+  font-size: 1.9em;
+}
+#site-footer .footer-container #footer-social ul li.width-7 {
+  font-size: 1.8em;
+}
+#site-footer .footer-container #footer-social ul li.width-8 {
+  font-size: 1.7em;
+}
+#site-footer .footer-container #footer-social ul li.width-9 {
+  font-size: 1.6em;
+}
+#site-footer .footer-container #footer-social ul li.width-10 {
+  font-size: 1.5em;
+}
+#site-footer .footer-container #footer-social ul {
+  text-align: right;
+  margin-top: 0;
+  margin-bottom: 0;
+  vertical-align: bottom;
+  padding-left: 0;
+}
+#site-footer .footer-container #footer-social ul li a.contact-facebook {
+  color: #3b5998;
+}
+#site-footer .footer-container #footer-social ul li a.contact-twitter {
+  color: #55acee;
+}
+#site-footer .footer-container #footer-social ul li a.contact-instagram {
+  color: #3f729b;
+}
+#site-footer .footer-container #footer-social ul li a.contact-pinterest {
+  color: #cc2127;
+}
+#site-footer .footer-container #footer-social ul li a.contact-linkedin {
+  color: #0976b4;
+}
+#site-footer .footer-container #footer-social ul li a.contact-youtube {
+  color: #e52d27;
+}
+#site-footer .footer-container #footer-social ul li a.contact-googleplus {
+  color: #dd4b39;
+}
+#site-footer .footer-container #footer-social ul li a.contact-flickr {
+  color: #ff0084;
+}
+#site-footer .footer-container #footer-social ul li a.contact-tumblr {
+  color: #35465c;
+}
+#site-footer .footer-container #footer-social ul li a.contact-vimeo {
+  color: #1ab7ea;
+}
+#site-footer .footer-container #footer-social ul li a.contact-slideshare {
+  color: #e98325;
+}
+#site-footer .footer-container #footer-social ul li a .fa-stack {
+  font-size: 0.6em;
+}
 #site-footer .footer-container #footer-menu {
   margin-top: 15px;
+  margin-bottom: 10px;
 }
 #site-footer .footer-container #footer-menu ul#menu-footer-menu {
   list-style: none;
-  padding-left: 0;
+  padding-left: 15px;
   font-size: 0.9em;
+  vertical-align: bottom;
 }
 #site-footer .footer-container #footer-menu ul#menu-footer-menu li {
   display: inline-block;
@@ -11093,9 +11227,6 @@ textarea#respond textarea {
 #site-footer .footer-container #credit {
   text-align: right;
 }
-/********************
-**** Back to Top ****
-********************/
 .scroll-top-wrapper {
   -webkit-backface-visibility: hidden;
   position: fixed;
@@ -11135,6 +11266,28 @@ textarea#respond textarea {
   margin-bottom: 0;
   top: 0 !important;
 }
+/***************************
+**** Jetstrap Galleries ****
+****************************/
+.tiled-gallery {
+  max-width: 100%;
+  width: 100%;
+  margin: 25px auto;
+}
+.tiled-gallery .gallery-row {
+  margin-left: auto;
+  margin-right: auto;
+}
+.gallery {
+  margin: 25px auto;
+  max-width: 100%;
+  width: 100%;
+}
+.gallery .gallery-item {
+  display: inline-block;
+  margin: 10px 5px;
+  vertical-align: top;
+}
 @media only screen and (max-width: 768px) {
   body.logged-in {
     margin-top: 0px;
@@ -11154,6 +11307,10 @@ textarea#respond textarea {
   #site-footer {
     margin-top: 25px;
     padding: 25px inherit;
+  }
+  #site-footer .footer-container #footer-social ul {
+    margin-top: 15px;
+    text-align: left;
   }
   #site-footer .footer-container #credit,
   #site-footer .footer-container #copyright {
@@ -11373,6 +11530,9 @@ textarea#respond textarea {
 .widget_tw_social_widget ul li a.contact-slideshare {
   color: #e98325;
 }
+.widget_tw_social_widget ul li a .fa-stack {
+  font-size: 0.6em;
+}
 .widget_tw_social_widget ul li.width-1 {
   font-size: 2.4em;
 }
@@ -11567,10 +11727,6 @@ textarea.widget_categories .postform {
   border: none;
   padding: 0;
 }
-.widget_tw_blog_widget .thumbnail .caption {
-  padding-left: 0;
-  padding-right: 0;
-}
 .widget_tw_blog_widget .thumbnail .caption h2,
 .widget_tw_blog_widget .thumbnail .caption h3,
 .widget_tw_blog_widget .thumbnail .caption p {
@@ -11603,7 +11759,7 @@ textarea.widget_categories .postform {
   line-height: 1.5;
   border-radius: 3px;
 }
-#homepage-widgets .widget_tw_blog_widget .widget-title {
+#homepage-widgets .widget .widget-title {
   text-align: center;
   margin-bottom: 25px;
   padding-bottom: 15px;
@@ -11646,10 +11802,6 @@ textarea.widget_categories .postform {
 #homepage-widgets .widget_tw_blog_widget .blog-container .caption h3 {
   text-align: center;
 }
-#homepage-widgets .widget_tw_blog_widget .blog-container .caption .icon {
-  text-align: center;
-  font-size: 2em;
-}
 #homepage-widgets .widget_tw_blog_widget .blog-container .caption p {
   text-align: justify;
 }
@@ -11670,8 +11822,6 @@ textarea.widget_categories .postform {
 }
 .landing-page .entry-header h1 {
   text-align: center;
-  border-bottom: 1px solid #e1e1e1;
-  padding-bottom: 25px;
   margin-bottom: 25px;
 }
 .landing-page .entry-header .section-video {

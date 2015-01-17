@@ -15,6 +15,7 @@ include_once('includes/tw-wp-core/tw_wp_functions.php');
 include_once('includes/tw-wp-core/tw_theme_admin_settings.php');
 include_once('includes/tw-wp-core/tw_wp_bootstrap_navwalker.php');
 include_once('includes/tw-wp-core/tw_wp_widgets.php');
+include_once('includes/tw-wp-core/tw_wp_shortcodes.php');
 include_once('includes/tw-wp-core/tw_lp_functions.php');
 
 
@@ -67,22 +68,22 @@ if( !function_exists( "tw_theme_js" ) ) {
     }
 */
 
-		wp_register_script( 'bootstrap', get_template_directory_uri().'/includes/bootstrap/dist/js/bootstrap.min.js', array('jquery'), null, true );
+		//wp_register_script( 'bootstrap', get_template_directory_uri().'/includes/bootstrap/dist/js/bootstrap.min.js', array('jquery'), null, true );
 
-		wp_register_script( 'jasny', get_template_directory_uri().'/includes/jasny/dist/js/jasny-bootstrap.min.js', array('jquery'), null, true );
+		//wp_register_script( 'jasny', get_template_directory_uri().'/includes/jasny/dist/js/jasny-bootstrap.min.js', array('jquery'), null, true );
 
-    wp_register_script( 'isotope', get_template_directory_uri().'/includes/isotope/dist/isotope.pkgd.min.js', array('jquery'), null, false );
+    //wp_register_script( 'isotope', get_template_directory_uri().'/includes/isotope/dist/isotope.pkgd.min.js', array('jquery'), null, false );
 
 
-		wp_register_script( 'holder', '//cdnjs.cloudflare.com/ajax/libs/holder/2.0/holder.js', array('jquery'), '2.0', true );
+		//wp_register_script( 'holder', '//cdnjs.cloudflare.com/ajax/libs/holder/2.0/holder.js', array('jquery'), '2.0', true );
 
-		wp_register_script( 'tw_script', get_template_directory_uri() . '/includes/tw-wp-core/js/tw_script.js', array('jquery'), null, true );
+		wp_register_script( 'tw_script', get_template_directory_uri() . '/assets/js/min/theme-min.js', array('jquery'), null, true );
 
-		wp_enqueue_script( 'bootstrap');
-		wp_enqueue_script( 'jasny');
-		wp_enqueue_script( 'isotope');
+		//wp_enqueue_script( 'bootstrap');
+		//wp_enqueue_script( 'jasny');
+		//wp_enqueue_script( 'isotope');
 		wp_enqueue_script( 'tw_script');
-		wp_enqueue_script( 'holder');
+		//wp_enqueue_script( 'holder');
 
     if ( is_singular() && get_option( 'thread_comments' ) ){
       wp_enqueue_script( 'comment-reply' );

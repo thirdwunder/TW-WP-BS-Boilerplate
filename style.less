@@ -63,6 +63,7 @@ For modern browsers */
 @import "includes/bootstrap/less/bootstrap.less";
 @import "includes/jasny/less/jasny-bootstrap.less";
 @import "includes/fontawesome/less/font-awesome.less";
+@fa-font-path:        "includes/fontawesome/fonts";
 
 /***** Third Wunder Imports *****/
 @import "includes/tw-wp-core/less/tw-functions.less";
@@ -106,10 +107,13 @@ For modern browsers */
 
 @color-menu-body: #555;
 @color-menu-bg: #f8f8f8;
+
 @color-menu-body-hover: #333;
 @color-menu-bg-hover: #e7e7e7;
+
 @color-menu-body-selected: #555;
 @color-menu-bg-selected: #e7e7e7;
+
 @color-menu-bg-inverse-hover: @color-primary-light;
 @color-menu-bg-inverse-selected: @color-primary;
 
@@ -128,6 +132,11 @@ For modern browsers */
 /**** Bootstrap Scaffolding ***/
 @body-bg:    #fff;
 @text-color: #333;
+
+@font-family-sans-serif:  @font-raleway;
+@font-family-serif:       @font-signika;
+@font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+@font-family-base:        @font-lato;
 
 @font-size-base:          16px;
 @font-size-large:         ceil((@font-size-base * 1.25)); // ~20px
