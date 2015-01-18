@@ -63,25 +63,27 @@
           <?php tw_copyright(); ?>
         </div>
         <div id="credit" class="col-xs-12 col-sm-6 col-md-6">
-          <?php //tw_credit(); ?>
-
-
-          <?php if($footer_social): ?>
           <?php
-            $social_info   = tw_get_theme_social_options();
-            if($social_info):
-              $count = count($social_info);
-            ?>
+            $footer_social  = isset($tgo['enable_footer_social']) ? !!$tgo['enable_footer_social'] : false;
+            if($footer_social):
+              $square_social_icons = false;
+              $social_info   = tw_get_theme_social_options($square_social_icons);
+              if($social_info):
+                $count = count($social_info);
+              ?>
             <div id="footer-social" class="footer-social <?php //echo $footer_social_class;?>">
               <ul>
                 <?php foreach($social_info as $network=>$details): ?>
                   <li class="width-<?php echo $count; ?>">
                     <a class="contact-<?php echo $network; ?>" href="<?php echo $details['url']; ?>" target="_blank" title="<?php echo ucfirst($network); ?>">
-                      <span class="fa-stack fa-lg">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa <?php echo $details['icon']; ?> fa-stack-1x fa-inverse"></i>
-                      </span>
-                      <!-- <i class="fa <?php echo $details['icon']; ?>"></i> -->
+                      <?php if($square_social_icons):?>
+                        <i class="fa <?php echo $details['icon']; ?>"></i>
+                      <?php else: ?>
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa <?php echo $details['icon']; ?> fa-stack-1x fa-inverse"></i>
+                        </span>
+                      <?php endif; ?>
                     </a>
                   </li>
                 <?php endforeach; ?>
@@ -89,10 +91,11 @@
             </div>
           <?php endif; ?>
 
-
+        <?php else: ?>
+          <?php tw_credit(); ?>
         <?php endif; ?>
 
-        </div>
+        </div><!-- #credit -->
       </div>
     </div>
   </footer>

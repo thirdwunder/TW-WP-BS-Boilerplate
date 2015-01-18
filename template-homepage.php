@@ -97,7 +97,7 @@ get_header(); ?>
   <div id="primary" class="container content-area">
     <div class="row page-content" itemprop="text">
       <div class="col-sm-12 col-md-12">
-        <?php the_content(); ?>
+        <?php while ( have_posts() ) : the_post(); the_content(); endwhile; ?>
       </div>
     </div>
   </div>

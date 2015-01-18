@@ -8,7 +8,8 @@
  * @subpackage Third Wunder
  * @since Third Wunder 1.0
  */
- $social_info   = tw_get_theme_social_options();
+ $square_social_icons = false;
+ $social_info   = tw_get_theme_social_options($square_social_icons);
  $contact_info  = get_option('tw_theme_contact_options');
 get_header(); ?>
 <!-- Site Container -->
@@ -73,7 +74,16 @@ get_header(); ?>
                   <ul>
                     <?php foreach($social_info as $network=>$details): ?>
                       <li>
-                        <a class="contact-<?php echo $network; ?>" href="<?php echo $details['url']; ?>" target="_blank" title="<?php echo ucfirst($network); ?>"><i class="fa <?php echo $details['icon']; ?>"></i></a>
+                        <a class="contact-<?php echo $network; ?>" href="<?php echo $details['url']; ?>" target="_blank" title="<?php echo ucfirst($network); ?>">
+                          <?php if($square_social_icons):?>
+                            <i class="fa <?php echo $details['icon']; ?>"></i>
+                          <?php else: ?>
+                            <span class="fa-stack fa-lg">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa <?php echo $details['icon']; ?> fa-stack-1x fa-inverse"></i>
+                            </span>
+                          <?php endif; ?>
+                        </a>
                       </li>
                     <?php endforeach; ?>
                   </ul>
