@@ -45,8 +45,9 @@
       <div class="col-xs-12 col-sm-12 col-md-9" itemprop="articleBody">
 
           <?php if($audio_src!==''): ?>
-          <div id="article-audio" class="article-audio well">
-            <?php if($audio_title!==''): ?><h3><?php echo $audio_title; ?></h3><?php endif; ?>
+          <div id="article-audio" class="article-audio well" itemscope itemtype="http://schema.org/AudioObject">
+            <?php if($audio_title!==''): ?><h3 itemprop="name"><?php echo $audio_title; ?></h3><?php endif; ?>
+            <meta itemprop="contentUrl" content="<?php echo $audio_src;?>" />
             <?php echo do_shortcode('[audio src="'.$audio_src.'"]'); ?>
           </div>
           <?php endif; ?>

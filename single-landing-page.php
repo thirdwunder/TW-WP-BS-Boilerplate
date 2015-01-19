@@ -34,7 +34,7 @@ get_header(); ?>
           <header class="entry-header">
              <?php if(!is_null($video_url) && $video_url!=='' ): ?>
              <div id="section-video-<?php the_ID(); ?>" class="section-video" style="<?php echo $video_bg; ?>">
-               <div id="video-<?php the_ID(); ?>" class="video embed-responsive embed-responsive-16by9" >
+               <div id="video-<?php the_ID(); ?>" class="video embed-responsive embed-responsive-16by9" itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
                  <!-- <?php echo html_entity_decode(tw_videoURL_to_embedCode($video_url, true)); ?> -->
                </div>
              </div>

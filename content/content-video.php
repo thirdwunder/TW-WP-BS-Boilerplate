@@ -27,7 +27,7 @@ $video_embed = tw_videoURL_to_embedCode($video_url, $video_autoplay);
         if(has_post_thumbnail()):
           if(!is_null($video_url)):?>
             <div id="section-video-<?php the_ID(); ?>" class="section-video" style="<?php echo $bg_style; ?>">
-              <div id="video-<?php the_ID(); ?>" class="video embed-responsive embed-responsive-16by9" >
+              <div id="video-<?php the_ID(); ?>" class="video embed-responsive embed-responsive-16by9" itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
                 <!-- <?php echo html_entity_decode($video_embed); ?> -->
               </div>
             </div>
@@ -44,7 +44,7 @@ $video_embed = tw_videoURL_to_embedCode($video_url, $video_autoplay);
       <?php
           endif;
         elseif(!is_null($video_url)): ?>
-          <div class="video embed-responsive embed-responsive-16by9" >
+          <div class="video embed-responsive embed-responsive-16by9" itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
           <?php echo html_entity_decode($video_embed); ?>
           </div>
         <?php endif;
