@@ -6,8 +6,7 @@
  * @subpackage Third Wunder
  * @since Third Wunder 1.0
  */
-$theme_general_options = get_option('tw_theme_general_options') ? get_option('tw_theme_general_options') : null;
-$primary_sidebar = $theme_general_options['enable_sidebar'];
+$primary_sidebar = tw_is_sidebar_enabled();
 get_header(); ?>
 <!-- Site Container -->
 <div id="site-content" class="container">

@@ -20,11 +20,6 @@
 	$social['pinterest']    = get_the_author_meta( 'pinterest', $author_id );
 	$social['instagram']    = get_the_author_meta( 'instagram', $author_id );
 	$social['youtube']      = get_the_author_meta( 'youtube',   $author_id );
-
-	//$social['myspace']      = get_the_author_meta( 'myspace',   $author_id );
-	//$social['soundcloud']   = get_the_author_meta( 'soundcloud',$author_id );
-
-
 ?>
 <aside id="entry-author" class="entry-author-bio" itemscope="itemscope" itemtype="http://schema.org/Person" itemprop="author">
 
