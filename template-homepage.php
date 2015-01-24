@@ -56,11 +56,11 @@ get_header(); ?>
 <!-- Site Container -->
 <div id="site-content" <?php post_class('container-fluid');?> role="main" itemprop="mainContentOfPage">
   <?php if($j_enabled): ?>
-  <div class="jumbotron-wrapper row">
-  <div class="jumbotron <?php echo $j_color; ?>" style="<?php echo $j_bg_style; ?>">
+  <div class="jumbotron-wrapper  row">
+  <div class="jumbotron <?php if($j_video_url!==''){ echo 'has-video';}else{ echo 'no-video';} ?> <?php echo $j_color; ?>" style="<?php echo $j_bg_style; ?>">
     <div class="jumbotron-container">
         <?php if($j_video_url==''): ?>
-          <div class="jumbotron-content no-video col-xs-12 col-sm-12 col-md-12">
+          <div class="jumbotron-content col-xs-12 col-sm-12 col-md-12">
             <?php if(isset($j_options['tw_jumbotron_title'])):?><h1><?php echo $j_options['tw_jumbotron_title'];?></h1><?php endif; ?>
             <?php if(isset($j_options['tw_jumbotron_text'])):?><p><?php echo $j_options['tw_jumbotron_text'];?></p><?php endif; ?>
             <?php if($j_button  && $j_url): ?>
@@ -68,7 +68,7 @@ get_header(); ?>
             <?php endif; ?>
           </div>
         <?php else: ?>
-          <div class="jumbotron-content has-video col-xs-12 col-sm-12 col-md-6">
+          <div class="jumbotron-content col-xs-12 col-sm-12 col-md-6">
 
             <?php if(isset($j_options['tw_jumbotron_title'])):?><h1><?php echo $j_options['tw_jumbotron_title'];?></h1><?php endif; ?>
             <?php if(isset($j_options['tw_jumbotron_text'])):?><p><?php echo $j_options['tw_jumbotron_text'];?></p><?php endif; ?>
