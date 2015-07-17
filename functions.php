@@ -26,6 +26,14 @@ if( class_exists( 'BuddyPress' ) ) {
   }
 }
 
+
+if(class_exists('WooThemes_Sensei')){
+  if( is_plugin_active( 'woothemes-sensei/woothemes-sensei.php' ) ) {
+    error_log('we have sensei');
+    include_once('includes/tw-wp-core/tw-woo-sensei.php');
+  }
+}
+
 /******************************************************
 *************** Optimized Image Sizes *****************
 ******************************************************/
