@@ -29,8 +29,13 @@ if( class_exists( 'BuddyPress' ) ) {
 
 if(class_exists('WooThemes_Sensei')){
   if( is_plugin_active( 'woothemes-sensei/woothemes-sensei.php' ) ) {
-    error_log('we have sensei');
     include_once('includes/tw-wp-core/tw-woo-sensei.php');
+  }
+}
+
+if(class_exists('TW_FAQ_Plugin')){
+  if( is_plugin_active( 'tw-faq-plugin/tw-faq-plugin.php' ) ) {
+    include_once('lib/tw-faq-plugin.php');
   }
 }
 
