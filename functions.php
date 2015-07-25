@@ -39,6 +39,12 @@ if(class_exists('TW_FAQ_Plugin')){
   }
 }
 
+if(class_exists('TW_Glossary_Plugin')){
+  if( is_plugin_active( 'tw-glossary-plugin/tw-glossary-plugin.php' ) ) {
+    include_once('lib/tw-glossary-plugin.php');
+  }
+}
+
 /******************************************************
 *************** Optimized Image Sizes *****************
 ******************************************************/
