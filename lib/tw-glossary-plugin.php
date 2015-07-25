@@ -20,6 +20,8 @@ function tw_glossary_plugin_before_glossary_action(){
   get_template_part( 'content/_breadcrumbs' );
 }
 add_action('tw_glossary_plugin_before_glossary_single', 'tw_glossary_plugin_before_glossary_action', 10);
+add_action('tw_glossary_plugin_before_glossary_archive', 'tw_glossary_plugin_before_glossary_action', 10);
+add_action('tw_glossary_plugin_before_glossary_template', 'tw_glossary_plugin_before_glossary_action', 10);
 
 function tw_glossary_plugin_before_glossary_title_action(){
   //get_template_part( 'content/_breadcrumbs' );
