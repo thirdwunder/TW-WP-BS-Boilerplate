@@ -45,6 +45,12 @@ if(class_exists('TW_Glossary_Plugin')){
   }
 }
 
+
+if( is_plugin_active( 'project-panorama/project-panorama.php' ) ) {
+  include_once('lib/tw-project-panorama-plugin.php');
+}
+
+
 /******************************************************
 *************** Optimized Image Sizes *****************
 ******************************************************/
