@@ -100,28 +100,5 @@
     </div>
   </footer>
 <?php wp_footer(); ?>
-
-<?php
-  $fb_comments = false;
-  $fb_app_id = null;
-  $social_options = tw_get_social_options();
-  if(is_array($social_options) && isset($social_options['enable_fb_comments'])){
-    $fb_comments = !!$social_options['enable_fb_comments'];
-  }
-  if(is_array($social_options) && isset($social_options['fb_app_id']) ){
-    $fb_app_id = trim($social_options['fb_app_id']);
-  }
-  if(!is_null($fb_app_id)):
-?>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=<?php echo $fb_app_id; ?>&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<?php endif; ?>
-
 </body>
 </html>
